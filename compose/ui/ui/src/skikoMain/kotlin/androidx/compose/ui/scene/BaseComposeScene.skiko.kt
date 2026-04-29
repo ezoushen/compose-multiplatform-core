@@ -176,7 +176,16 @@ internal abstract class BaseComposeScene(
             recomposer.performScheduledEffects()
 
             recomposer.performScheduledRecomposerTasks()
-            frameClock.sendFrame(nanoTime) // withFrameMillis/Nanos and recomposition
+
+            // Phase E (perf): elide sendFrame when there is no consumer.
+            // sendFrame wakes withFrameNanos/withFrameMillis awaiters and triggers
+            // a Recomposer frame cycle. When there are no awaiters AND the
+            // Recomposer/effect/recompose dispatchers have no pending work, this
+            // call is pure overhead on every render tick (e.g. CADisplayLink on iOS
+            // during steady-state Rive playback).
+            if (frameClock.hasAwaiters || recomposer.hasPendingWork) {
+                frameClock.sendFrame(nanoTime) // withFrameMillis/Nanos and recomposition
+            }
 
             doMeasureAndLayout()  // Layout
 
