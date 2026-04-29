@@ -105,9 +105,31 @@ internal abstract class BaseComposeScene(
 
     @Volatile
     private var hasPendingDraws = true
+
+    /**
+     * See [ComposeScene.sceneDirty]. Set whenever [updateInvalidations] observes pending draw work
+     * (recomposition awaiters, dirty layers, snapshot invalidations, requested draws/layouts).
+     * Cleared by the platform redrawer via [markSceneClean] after a successful picture re-record.
+     *
+     * Initialised to `true` so the first frame always records.
+     */
+    @Volatile
+    private var _sceneDirty: Boolean = true
+
+    override val sceneDirty: Boolean
+        get() = _sceneDirty
+
+    override fun markSceneClean() {
+        _sceneDirty = false
+    }
+
     protected fun updateInvalidations() {
         hasPendingDraws = frameClock.hasAwaiters ||
             snapshotInvalidationTracker.hasInvalidations
+        if (hasPendingDraws) {
+            // Any pending draw work invalidates the cached SkPicture in the platform redrawer.
+            _sceneDirty = true
+        }
         if (hasPendingDraws && !isInvalidationDisabled && !isClosed && composition != null) {
             invalidate()
         }

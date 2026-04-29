@@ -284,4 +284,20 @@ sealed interface ComposeScene : AutoCloseable {
      * provided by the [androidx.compose.runtime.Recomposer] of the current scene.
      */
     suspend fun withMonotonicFrameClock(block: suspend () -> Unit)
+
+    /**
+     * `true` when the scene tree has structurally changed since the last frame was rendered, so a
+     * cached `SkPicture` (recorded by the platform redrawer) is no longer valid and must be
+     * re-recorded. The platform redrawer reads this flag before recording. If `false`, the cached
+     * `SkPicture` is replayed; if `true`, the redrawer re-invokes [render] and then calls
+     * [markSceneClean] to clear the flag.
+     */
+    val sceneDirty: Boolean
+
+    /**
+     * Mark the scene as clean. Called by the platform redrawer immediately after a successful
+     * `SkPicture` re-record so subsequent ticks can replay the cached picture until the scene is
+     * re-dirtied.
+     */
+    fun markSceneClean()
 }
