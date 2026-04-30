@@ -230,13 +230,6 @@ internal class MetalRedrawer(
         }
     }
 
-    init {
-        // Publish setNeedsRedraw via MetalRedrawTrigger so external animators (e.g. an
-        // overlay-blit compositor) can request a draw without invalidating the Compose scene.
-        // Last-redrawer-wins (single-redrawer topology).
-        MetalRedrawTrigger.requestRedraw = { setNeedsRedraw() }
-    }
-
     /**
      * A wrapper around CAMetalLayer that allows to perform operations on its drawables without
      * exposing the objects to Kotlin/Native runtime and thus allowing explicit lifetime control of them.
@@ -583,14 +576,6 @@ internal class MetalRedrawer(
 
                     val commandBuffer = queue.commandBuffer()!!
                     commandBuffer.label = "Present"
-
-                    // Post-draw hook for an external Metal compositor. The hook may encode
-                    // commands onto this presentation command buffer BEFORE the drawable is
-                    // scheduled for present.
-                    MetalPostDrawHook.hook?.invoke(
-                        commandBuffer.objcPtr().toLong(),
-                        metalDrawablesHandler.drawableTexture(metalDrawable).rawValue.toLong()
-                    )
 
                     if (!presentsWithTransaction) {
                         // scheduleDrawablePresentation consumes metalDrawable
