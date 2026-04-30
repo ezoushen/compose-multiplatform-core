@@ -129,8 +129,41 @@ internal class MetalRedrawer(
     private val metalLayer: CAMetalLayer,
     private var retrieveInteropTransaction: () -> UIKitInteropTransaction,
     private val useSeparateRenderThreadWhenPossible: Boolean,
+    private var isSceneDirty: () -> Boolean = { true },
+    private var markSceneClean: () -> Unit = {},
     private var render: (Canvas, targetTimestamp: NSTimeInterval) -> Unit,
 ) {
+    /**
+     * Phase D (perf) — cached SkPicture from the previous frame. Replayed verbatim on subsequent
+     * display-link ticks while [isSceneDirty] returns `false` and the drawable size hasn't changed.
+     *
+     * Owned by the redrawer for its lifetime. Frames borrow the picture and MUST NOT close it.
+     * When a fresh picture replaces the cached one, the old picture is retired via the rendering
+     * queue (see [retireCachedPicture]) so any in-flight frame referencing it has finished first.
+     */
+    private var cachedPicture: org.jetbrains.skia.Picture? = null
+    private var cachedPictureWidth: Int = -1
+    private var cachedPictureHeight: Int = -1
+
+    /**
+     * Phase E (perf) — schedule a retired cached picture's `close()` onto the serial rendering
+     * dispatch queue, ensuring it runs after every frame block already enqueued / in flight.
+     */
+    private fun retireCachedPicture(retired: org.jetbrains.skia.Picture) {
+        if (useSeparateRenderThreadWhenPossible) {
+            dispatch_async(renderingDispatchQueue) { retired.close() }
+        } else {
+            retired.close()
+        }
+    }
+
+    init {
+        // Phase E: publish setNeedsRedraw via MetalRedrawTrigger so external animators
+        // (e.g. rivecmp overlay) can request a draw without invalidating the Compose
+        // scene. Last-redrawer-wins (single-redrawer topology).
+        MetalRedrawTrigger.requestRedraw = { setNeedsRedraw() }
+    }
+
     /**
      * A wrapper around CAMetalLayer that allows to perform operations on its drawables without
      * exposing the objects to Kotlin/Native runtime and thus allowing explicit lifetime control of them.
@@ -271,6 +304,8 @@ internal class MetalRedrawer(
         }
 
         render = { _, _ -> }
+        isSceneDirty = { true }
+        markSceneClean = {}
 
         releaseCachedCommandQueue(queue)
 
@@ -285,6 +320,8 @@ internal class MetalRedrawer(
             }
         }
 
+        cachedPicture?.close()
+        cachedPicture = null
         pictureRecorder.close()
         context.close()
     }
@@ -352,20 +389,33 @@ internal class MetalRedrawer(
                 return@autoreleasepool
             }
 
-            // Perform timestep and record all draw commands into [Picture]
-            val picture = trace("MetalRedrawer:draw:pictureRecording") {
-                pictureRecorder.beginRecording(
-                    Rect(
-                        left = 0f,
-                        top = 0f,
-                        width.toFloat(),
-                        height.toFloat()
-                    )
-                ).also { canvas ->
-                    render(canvas, lastRenderTimestamp)
+            // Phase D: reuse the cached picture when the scene is clean and the drawable size
+            // matches. The cached picture is owned by this redrawer; frames only borrow it.
+            val sizeMatches = (cachedPictureWidth == width && cachedPictureHeight == height)
+            val cached = cachedPicture
+            val needsRecord = cached == null || !sizeMatches || isSceneDirty()
+            val picture: org.jetbrains.skia.Picture = if (!needsRecord) {
+                cached!!
+            } else {
+                trace("MetalRedrawer:draw:pictureRecording") {
+                    pictureRecorder.beginRecording(
+                        Rect(
+                            left = 0f,
+                            top = 0f,
+                            width.toFloat(),
+                            height.toFloat()
+                        )
+                    ).also { canvas ->
+                        render(canvas, lastRenderTimestamp)
+                    }
+                    val newPicture = pictureRecorder.finishRecordingAsPicture()
+                    cachedPicture = newPicture
+                    cachedPictureWidth = width
+                    cachedPictureHeight = height
+                    if (cached != null) retireCachedPicture(cached)
+                    markSceneClean()
+                    newPicture
                 }
-
-                pictureRecorder.finishRecordingAsPicture()
             }
 
             if (!currentFrameRate.isNaN()) {
@@ -383,8 +433,7 @@ internal class MetalRedrawer(
 
             if (metalDrawable == null) {
                 // TODO: anomaly, log
-                // Logger.warn { "'metalLayer.nextDrawable()' returned null. 'metalLayer.allowsNextDrawableTimeout' should be set to false. Skipping the frame." }
-                picture.close()
+                // Phase D: do NOT close picture; it is owned by cachedPicture and reused next tick.
                 dispatch_semaphore_signal(inflightSemaphore)
                 return@autoreleasepool
             }
@@ -406,8 +455,7 @@ internal class MetalRedrawer(
 
             if (surface == null) {
                 // TODO: anomaly, log
-                // Logger.warn { "'Surface.makeFromBackendRenderTarget' returned null. Skipping the frame." }
-                picture.close()
+                // Phase D: do NOT close picture; it is owned by cachedPicture.
                 renderTarget.close()
                 metalDrawablesHandler.releaseDrawable(metalDrawable)
                 dispatch_semaphore_signal(inflightSemaphore)
@@ -435,7 +483,7 @@ internal class MetalRedrawer(
                     }
 
                     surface.canvas.drawPicture(picture)
-                    picture.close()
+                    // Phase D: do NOT close picture; owned by cachedPicture and replayed next tick.
                     surface.flushAndSubmit()
 
                     surface.close()
@@ -447,6 +495,14 @@ internal class MetalRedrawer(
 
                     val commandBuffer = queue.commandBuffer()!!
                     commandBuffer.label = "Present"
+
+                    // Phase E: post-draw hook for external Metal compositors (e.g. rivecmp's
+                    // overlay-blit). The hook may encode commands onto this presentation command
+                    // buffer BEFORE the drawable is scheduled for present.
+                    MetalPostDrawHook.hook?.invoke(
+                        commandBuffer.objcPtr().toLong(),
+                        metalDrawablesHandler.drawableTexture(metalDrawable).rawValue.toLong()
+                    )
 
                     if (!presentsWithTransaction) {
                         // scheduleDrawablePresentation consumes metalDrawable

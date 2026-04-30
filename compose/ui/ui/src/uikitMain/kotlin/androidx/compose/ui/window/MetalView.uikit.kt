@@ -39,6 +39,8 @@ import platform.UIKit.UIViewMeta
 internal class MetalView(
     retrieveInteropTransaction: () -> UIKitInteropTransaction,
     useSeparateRenderThreadWhenPossible: Boolean,
+    isSceneDirty: () -> Boolean = { true },
+    markSceneClean: () -> Unit = {},
     render: (Canvas, nanoTime: Long) -> Unit,
 ) : UIView(frame = CGRectZero.readValue()) {
     companion object : UIViewMeta() {
@@ -56,7 +58,9 @@ internal class MetalView(
     val redrawer = MetalRedrawer(
         metalLayer,
         retrieveInteropTransaction,
-        useSeparateRenderThreadWhenPossible
+        useSeparateRenderThreadWhenPossible,
+        isSceneDirty = isSceneDirty,
+        markSceneClean = markSceneClean,
     ) { canvas, targetTimestamp ->
         canvas.clear(canvasBackground)
         render(canvas, targetTimestamp.toNanoSeconds())

@@ -303,6 +303,10 @@ internal class ComposeHostingViewController(
                 }
             },
             useSeparateRenderThreadWhenPossible = configuration.parallelRendering,
+            // Phase D: wire scene-dirty hooks so MetalRedrawer can cache the recorded SkPicture.
+            // If the mediator isn't ready yet, default to dirty so the first frame always records.
+            isSceneDirty = { mediator?.isSceneDirty() ?: true },
+            markSceneClean = { mediator?.markSceneClean() },
             render = { canvas, nanoTime ->
                 mediator?.render(canvas.asComposeCanvas(), nanoTime)
             }

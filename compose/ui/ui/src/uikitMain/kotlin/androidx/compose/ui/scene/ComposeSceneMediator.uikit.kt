@@ -593,6 +593,18 @@ internal class ComposeSceneMediator(
         scene.render(canvas, nanoTime)
     }
 
+    /**
+     * Phase D: @see [androidx.compose.ui.scene.ComposeScene.sceneDirty]
+     */
+    fun isSceneDirty(): Boolean = scene.sceneDirty
+
+    /**
+     * Phase D: @see [androidx.compose.ui.scene.ComposeScene.markSceneClean]
+     */
+    fun markSceneClean() {
+        scene.markSceneClean()
+    }
+
     fun retrieveInteropTransaction(): UIKitInteropTransaction =
         interopContainer.retrieveTransaction()
 
