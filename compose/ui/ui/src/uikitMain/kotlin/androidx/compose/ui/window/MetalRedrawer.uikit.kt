@@ -134,8 +134,8 @@ internal class MetalRedrawer(
     private var render: (Canvas, targetTimestamp: NSTimeInterval) -> Unit,
 ) {
     /**
-     * Phase D (perf) — cached SkPicture from the previous frame. Replayed verbatim on subsequent
-     * display-link ticks while [isSceneDirty] returns `false` and the drawable size hasn't changed.
+     * Cached SkPicture from the previous frame. Replayed verbatim on subsequent display-link
+     * ticks while [isSceneDirty] returns `false` and the drawable size hasn't changed.
      *
      * Owned by the redrawer for its lifetime. Frames borrow the picture and MUST NOT close it.
      * When a fresh picture replaces the cached one, the old picture is retired via the rendering
@@ -146,7 +146,7 @@ internal class MetalRedrawer(
     private var cachedPictureHeight: Int = -1
 
     /**
-     * Phase F (perf) — per-drawable-texture cache of [BackendRenderTarget] + [Surface]. CAMetalLayer
+     * Per-drawable-texture cache of [BackendRenderTarget] + [Surface]. CAMetalLayer
      * cycles a small pool of MTLTextures (typically 2-3) per `nextDrawable()`. The texture pointers
      * are stable across cycles, so we can key the cache on `drawableTexture.rawValue`.
      *
@@ -163,38 +163,64 @@ internal class MetalRedrawer(
     private var cachedRtSurfaceWidth: Int = -1
     private var cachedRtSurfaceHeight: Int = -1
 
+    /**
+     * Per-drawable picture-version cache. CAMetalLayer cycles drawables, so each drawable's
+     * pixels persist across cycles (between `present` and the next `nextDrawable()` that returns
+     * the same texture). When `cachedPicture` is unchanged AND a drawable's content already
+     * reflects that picture version (i.e. we ran `drawPicture` into THIS drawable for the
+     * current `pictureVersion`), the Skia replay is redundant — drawable already has it.
+     *
+     * Bumped on every fresh `pictureRecorder.finishRecordingAsPicture()` (i.e. when scene was
+     * dirty and we re-recorded). Per-drawable map tracks the last version that drawable saw.
+     *
+     * Interop frames bypass this optimization — when `presentsWithTransaction` is true the path
+     * always re-runs `drawPicture` to ensure the drawable receives any interop-side updates that
+     * Compose composed onto the new picture.
+     *
+     * Known limitation: CAMetalLayer drawable persistence is not API-guaranteed. Drawable
+     * contents may be discarded on app background/foreground transitions, on `drawableSize`
+     * change, or under memory pressure. This code accepts that risk because the next
+     * [setNeedsRedraw] rebumps `pictureVersion` (via re-record) and forces every drawable to
+     * be repainted; transient missed-frame artifacts are bounded to a single tick.
+     */
+    private var pictureVersion: Long = 0
+    private val drawableVersions = HashMap<Long, Long>()
+
     private fun rtSurfaceFor(
-        texturePtr: Long,
+        metalDrawable: kotlinx.cinterop.COpaquePointer,
         width: Int,
         height: Int
     ): kotlin.Pair<BackendRenderTarget, org.jetbrains.skia.Surface>? {
         if (cachedRtSurfaceWidth != width || cachedRtSurfaceHeight != height) {
-            // Size changed; close all cached entries.
+            // Size changed; close all cached entries and invalidate per-drawable picture-version map.
             rtSurfaceCache.values.forEach { (rt, s) -> s.close(); rt.close() }
             rtSurfaceCache.clear()
+            drawableVersions.clear()
             cachedRtSurfaceWidth = width
             cachedRtSurfaceHeight = height
         }
-        rtSurfaceCache[texturePtr]?.let { return it }
-        val rt = BackendRenderTarget.makeMetal(width, height, texturePtr = texturePtr)
+        val drawableTex = metalDrawablesHandler.drawableTexture(metalDrawable)
+        val key: Long = drawableTex.rawValue.toLong()
+        rtSurfaceCache[key]?.let { return it }
+        val rt = BackendRenderTarget.makeMetal(width, height, texturePtr = drawableTex.rawValue)
         val s = Surface.makeFromBackendRenderTarget(
             context, rt, SurfaceOrigin.TOP_LEFT,
             SurfaceColorFormat.BGRA_8888, ColorSpace.sRGB,
             SurfaceProps(pixelGeometry = PixelGeometry.UNKNOWN)
         ) ?: run { rt.close(); return null }
         val pair = kotlin.Pair(rt, s)
-        rtSurfaceCache[texturePtr] = pair
+        rtSurfaceCache[key] = pair
         // Cap to typical CAMetalLayer pool size (2-3); evict LRU-ish if it grows past 4.
         if (rtSurfaceCache.size > 4) {
-            val victimKey = rtSurfaceCache.keys.first { it != texturePtr }
+            val victimKey: Long = rtSurfaceCache.keys.first { it != key }
             rtSurfaceCache.remove(victimKey)?.let { (rt2, s2) -> s2.close(); rt2.close() }
         }
         return pair
     }
 
     /**
-     * Phase E (perf) — schedule a retired cached picture's `close()` onto the serial rendering
-     * dispatch queue, ensuring it runs after every frame block already enqueued / in flight.
+     * Schedule a retired cached picture's `close()` onto the rendering dispatch queue so any
+     * in-flight frame referencing it has finished first.
      */
     private fun retireCachedPicture(retired: org.jetbrains.skia.Picture) {
         if (useSeparateRenderThreadWhenPossible) {
@@ -205,9 +231,9 @@ internal class MetalRedrawer(
     }
 
     init {
-        // Phase E: publish setNeedsRedraw via MetalRedrawTrigger so external animators
-        // (e.g. rivecmp overlay) can request a draw without invalidating the Compose
-        // scene. Last-redrawer-wins (single-redrawer topology).
+        // Publish setNeedsRedraw via MetalRedrawTrigger so external animators (e.g. an
+        // overlay-blit compositor) can request a draw without invalidating the Compose scene.
+        // Last-redrawer-wins (single-redrawer topology).
         MetalRedrawTrigger.requestRedraw = { setNeedsRedraw() }
     }
 
@@ -369,9 +395,10 @@ internal class MetalRedrawer(
 
         cachedPicture?.close()
         cachedPicture = null
-        // Phase F: drain RT+Surface cache before closing context (Surfaces depend on context).
+        // Drain RT+Surface cache before closing context (Surfaces depend on context).
         rtSurfaceCache.values.forEach { (rt, s) -> s.close(); rt.close() }
         rtSurfaceCache.clear()
+        drawableVersions.clear()
         pictureRecorder.close()
         context.close()
     }
@@ -439,8 +466,8 @@ internal class MetalRedrawer(
                 return@autoreleasepool
             }
 
-            // Phase D: reuse the cached picture when the scene is clean and the drawable size
-            // matches. The cached picture is owned by this redrawer; frames only borrow it.
+            // Reuse the cached picture when the scene is clean and the drawable size matches.
+            // The cached picture is owned by this redrawer; frames only borrow it.
             val sizeMatches = (cachedPictureWidth == width && cachedPictureHeight == height)
             val cached = cachedPicture
             val needsRecord = cached == null || !sizeMatches || isSceneDirty()
@@ -463,6 +490,8 @@ internal class MetalRedrawer(
                     cachedPictureWidth = width
                     cachedPictureHeight = height
                     if (cached != null) retireCachedPicture(cached)
+                    // Bump picture version so all drawable caches re-flush on next encode.
+                    pictureVersion++
                     markSceneClean()
                     newPicture
                 }
@@ -483,17 +512,18 @@ internal class MetalRedrawer(
 
             if (metalDrawable == null) {
                 // TODO: anomaly, log
-                // Phase D: do NOT close picture; it is owned by cachedPicture and reused next tick.
+                // Do NOT close picture; it is owned by cachedPicture and reused next tick.
                 dispatch_semaphore_signal(inflightSemaphore)
                 return@autoreleasepool
             }
 
-            // Phase F: cache (RT, Surface) keyed on drawable texture pointer. CAMetalLayer's
-            // drawable pool cycles ~2-3 textures, so the pointer set is small and stable.
-            val texturePtr = metalDrawablesHandler.drawableTexture(metalDrawable).rawValue
-            val rtSurface = rtSurfaceFor(texturePtr, width, height)
+            // Cache (RT, Surface) keyed on drawable texture pointer. CAMetalLayer's drawable
+            // pool cycles ~2-3 textures, so the pointer set is small and stable.
+            val texturePtrLong: Long =
+                metalDrawablesHandler.drawableTexture(metalDrawable).rawValue.toLong()
+            val rtSurface = rtSurfaceFor(metalDrawable, width, height)
             if (rtSurface == null) {
-                // Phase D: do NOT close picture; it is owned by cachedPicture.
+                // Do NOT close picture; it is owned by cachedPicture.
                 metalDrawablesHandler.releaseDrawable(metalDrawable)
                 dispatch_semaphore_signal(inflightSemaphore)
                 return@autoreleasepool
@@ -520,10 +550,21 @@ internal class MetalRedrawer(
                         dispatch_semaphore_wait(drawCanvasSemaphore, DISPATCH_TIME_FOREVER)
                     }
 
-                    surface.canvas.drawPicture(picture)
-                    // Phase D: do NOT close picture; owned by cachedPicture and replayed next tick.
-                    surface.flushAndSubmit()
-                    // Phase F: do NOT close surface/renderTarget; owned by rtSurfaceCache.
+                    // Skip Skia replay when this drawable already reflects the current picture
+                    // version. CAMetalLayer drawables persist their pixel content across
+                    // present/re-acquire cycles, so a drawable previously painted with the same
+                    // picture version still has the right Compose content. Interop transactions
+                    // bypass this fast path.
+                    val drawableHasCurrentVersion =
+                        !presentsWithTransaction &&
+                        drawableVersions[texturePtrLong] == pictureVersion
+                    if (!drawableHasCurrentVersion) {
+                        surface.canvas.drawPicture(picture)
+                        // Do NOT close picture; owned by cachedPicture and replayed next tick.
+                        surface.flushAndSubmit()
+                        // Do NOT close surface/renderTarget; owned by rtSurfaceCache.
+                        drawableVersions[texturePtrLong] = pictureVersion
+                    }
 
                     if (useSeparateRenderThreadWhenPossible) {
                         dispatch_semaphore_signal(drawCanvasSemaphore)
@@ -532,9 +573,9 @@ internal class MetalRedrawer(
                     val commandBuffer = queue.commandBuffer()!!
                     commandBuffer.label = "Present"
 
-                    // Phase E: post-draw hook for external Metal compositors (e.g. rivecmp's
-                    // overlay-blit). The hook may encode commands onto this presentation command
-                    // buffer BEFORE the drawable is scheduled for present.
+                    // Post-draw hook for an external Metal compositor. The hook may encode
+                    // commands onto this presentation command buffer BEFORE the drawable is
+                    // scheduled for present.
                     MetalPostDrawHook.hook?.invoke(
                         commandBuffer.objcPtr().toLong(),
                         metalDrawablesHandler.drawableTexture(metalDrawable).rawValue.toLong()

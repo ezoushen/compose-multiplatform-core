@@ -594,12 +594,12 @@ internal class ComposeSceneMediator(
     }
 
     /**
-     * Phase D: @see [androidx.compose.ui.scene.ComposeScene.sceneDirty]
+     * @see [androidx.compose.ui.scene.ComposeScene.sceneDirty]
      */
     fun isSceneDirty(): Boolean = scene.sceneDirty
 
     /**
-     * Phase D: @see [androidx.compose.ui.scene.ComposeScene.markSceneClean]
+     * @see [androidx.compose.ui.scene.ComposeScene.markSceneClean]
      */
     fun markSceneClean() {
         scene.markSceneClean()
