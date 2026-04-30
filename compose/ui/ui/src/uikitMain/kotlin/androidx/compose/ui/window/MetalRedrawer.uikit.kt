@@ -251,6 +251,14 @@ internal class MetalRedrawer(
         ?: throw IllegalStateException("CAMetalLayer.device can not be null")
     private val queue = getCachedCommandQueue(device)
     private val context = DirectContext.makeMetal(device.objcPtr(), queue.objcPtr())
+
+    init {
+        // Publish the active DirectContext so external Skia integrations (e.g. compositors that
+        // wrap their own GPU textures via Surface.makeFromBackendRenderTarget + makeImageSnapshot)
+        // can render onto the same context the redrawer uses. Cleared on dispose.
+        ComposeMetalContext.directContext = context
+    }
+
     private var lastRenderTimestamp: NSTimeInterval = CACurrentMediaTime()
     private val pictureRecorder = PictureRecorder()
 
@@ -400,6 +408,9 @@ internal class MetalRedrawer(
         rtSurfaceCache.clear()
         drawableVersions.clear()
         pictureRecorder.close()
+        if (ComposeMetalContext.directContext === context) {
+            ComposeMetalContext.directContext = null
+        }
         context.close()
     }
 
