@@ -146,6 +146,53 @@ internal class MetalRedrawer(
     private var cachedPictureHeight: Int = -1
 
     /**
+     * Phase F (perf) — per-drawable-texture cache of [BackendRenderTarget] + [Surface]. CAMetalLayer
+     * cycles a small pool of MTLTextures (typically 2-3) per `nextDrawable()`. The texture pointers
+     * are stable across cycles, so we can key the cache on `drawableTexture.rawValue`.
+     *
+     * Eliminates per-frame `BackendRenderTarget.makeMetal` + `Surface.makeFromBackendRenderTarget`
+     * cinterop allocations. Entries are closed on size change and on dispose.
+     *
+     * Thread safety: lookups happen on main thread (inside autoreleasepool). The Surface is then
+     * either used on main (synchronous path) or borrowed by the rendering queue. The CAMetalLayer
+     * `inflightSemaphore` ensures at most `pool size` frames in flight, and each frame's drawable
+     * texture is unique within that window — so the same (RT, Surface) pair cannot be in flight
+     * twice concurrently.
+     */
+    private val rtSurfaceCache = HashMap<Long, kotlin.Pair<BackendRenderTarget, org.jetbrains.skia.Surface>>()
+    private var cachedRtSurfaceWidth: Int = -1
+    private var cachedRtSurfaceHeight: Int = -1
+
+    private fun rtSurfaceFor(
+        texturePtr: Long,
+        width: Int,
+        height: Int
+    ): kotlin.Pair<BackendRenderTarget, org.jetbrains.skia.Surface>? {
+        if (cachedRtSurfaceWidth != width || cachedRtSurfaceHeight != height) {
+            // Size changed; close all cached entries.
+            rtSurfaceCache.values.forEach { (rt, s) -> s.close(); rt.close() }
+            rtSurfaceCache.clear()
+            cachedRtSurfaceWidth = width
+            cachedRtSurfaceHeight = height
+        }
+        rtSurfaceCache[texturePtr]?.let { return it }
+        val rt = BackendRenderTarget.makeMetal(width, height, texturePtr = texturePtr)
+        val s = Surface.makeFromBackendRenderTarget(
+            context, rt, SurfaceOrigin.TOP_LEFT,
+            SurfaceColorFormat.BGRA_8888, ColorSpace.sRGB,
+            SurfaceProps(pixelGeometry = PixelGeometry.UNKNOWN)
+        ) ?: run { rt.close(); return null }
+        val pair = kotlin.Pair(rt, s)
+        rtSurfaceCache[texturePtr] = pair
+        // Cap to typical CAMetalLayer pool size (2-3); evict LRU-ish if it grows past 4.
+        if (rtSurfaceCache.size > 4) {
+            val victimKey = rtSurfaceCache.keys.first { it != texturePtr }
+            rtSurfaceCache.remove(victimKey)?.let { (rt2, s2) -> s2.close(); rt2.close() }
+        }
+        return pair
+    }
+
+    /**
      * Phase E (perf) — schedule a retired cached picture's `close()` onto the serial rendering
      * dispatch queue, ensuring it runs after every frame block already enqueued / in flight.
      */
@@ -322,6 +369,9 @@ internal class MetalRedrawer(
 
         cachedPicture?.close()
         cachedPicture = null
+        // Phase F: drain RT+Surface cache before closing context (Surfaces depend on context).
+        rtSurfaceCache.values.forEach { (rt, s) -> s.close(); rt.close() }
+        rtSurfaceCache.clear()
         pictureRecorder.close()
         context.close()
     }
@@ -438,29 +488,17 @@ internal class MetalRedrawer(
                 return@autoreleasepool
             }
 
-            val renderTarget = BackendRenderTarget.makeMetal(
-                width,
-                height,
-                texturePtr = metalDrawablesHandler.drawableTexture(metalDrawable).rawValue
-            )
-
-            val surface = Surface.makeFromBackendRenderTarget(
-                context,
-                renderTarget,
-                SurfaceOrigin.TOP_LEFT,
-                SurfaceColorFormat.BGRA_8888,
-                ColorSpace.sRGB,
-                SurfaceProps(pixelGeometry = PixelGeometry.UNKNOWN)
-            )
-
-            if (surface == null) {
-                // TODO: anomaly, log
+            // Phase F: cache (RT, Surface) keyed on drawable texture pointer. CAMetalLayer's
+            // drawable pool cycles ~2-3 textures, so the pointer set is small and stable.
+            val texturePtr = metalDrawablesHandler.drawableTexture(metalDrawable).rawValue
+            val rtSurface = rtSurfaceFor(texturePtr, width, height)
+            if (rtSurface == null) {
                 // Phase D: do NOT close picture; it is owned by cachedPicture.
-                renderTarget.close()
                 metalDrawablesHandler.releaseDrawable(metalDrawable)
                 dispatch_semaphore_signal(inflightSemaphore)
                 return@autoreleasepool
             }
+            val (renderTarget, surface) = rtSurface
 
             val interopTransaction = retrieveInteropTransaction()
 
@@ -485,9 +523,7 @@ internal class MetalRedrawer(
                     surface.canvas.drawPicture(picture)
                     // Phase D: do NOT close picture; owned by cachedPicture and replayed next tick.
                     surface.flushAndSubmit()
-
-                    surface.close()
-                    renderTarget.close()
+                    // Phase F: do NOT close surface/renderTarget; owned by rtSurfaceCache.
 
                     if (useSeparateRenderThreadWhenPossible) {
                         dispatch_semaphore_signal(drawCanvasSemaphore)
