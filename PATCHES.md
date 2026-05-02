@@ -75,3 +75,49 @@ To match what CI publishes:
   -Pcompose.platforms=macos,uikit,jvm,android \
   -Pcompose.versionExtra=-picture-cache.local
 ```
+
+## Deferred — JB savedstate/lifecycle iOS klib publication bug
+
+JB's published `org.jetbrains.androidx.{lifecycle,savedstate}:*` parent
+modules have broken iOS variants — `iosArm64ApiElements-published` ships
+with empty `files`, no `available-at` to the per-target sub-module
+(which IS published with a real klib), and a single redirect dep on the
+Google `androidx.*` coord (which has no iOS klib). K/N consumers fail
+with `KLIB resolver: Could not find org.jetbrains.androidx.*`. Confirmed
+present in 2.10.0 stable, 2.11.0-alpha03, and `2.11.0-beta01+dev4086`
+(jb-main HEAD) — bug NOT fixed upstream as of 2026-05-02. CMP-9502
+introduced Gradle capability rules but did not address the empty-iOS-
+variant pattern.
+
+Root cause sits in `JetBrainsAndroidXRedirectingPublicationHelpers.kt`:
+the `kotlinMultiplatform` publication is disabled and replaced with
+`kotlinMultiplatformDecorated` built from `CustomRootComponent`.
+`CustomRootComponent.getUsages()` preserves the original iOS usages,
+but Gradle's Maven publish writes them without the `available-at`
+redirect that the standard MPP plugin would normally inject (that
+behaviour is special-cased only for the `kotlinMultiplatform` software
+component).
+
+Workaround in stforestkit (commit reference, not in this fork): force
+`savedstate:savedstate:1.2.2` (last version with a working iOS klib at
+the parent coord) + ship empty stub klibs for
+`lifecycle-viewmodel-savedstate` matching its `unique_name`. Works,
+~30 lines.
+
+To fix in this fork (deferred until we rebase on JB 1.11 stable —
+re-verify upstream first, may be fixed by then):
+1. Patch `CustomRootComponent.getUsages()` to attach `available-at`
+   info on non-android target usages, pointing at the per-target
+   sub-module coord we already publish.
+2. Drop `-Pjetbrains.publication.libraries=COMPOSE` from the CI
+   workflow so SAVEDSTATE/LIFECYCLE publish too.
+3. Set their respective `jetbrains.publication.version.*` properties
+   to fork-suffixed versions.
+4. Stforestkit then deletes its stub subproject + version-force +
+   adds the fork repo with `includeGroupAndSubgroups` for the
+   `org.jetbrains.androidx.{lifecycle,savedstate}` groups.
+
+Estimated effort: ~half day for the publication patch (touches
+non-trivial buildSrc internals) + ~30min for CI/wiring + 1hr CI bake
+per release. Reward small (stforestkit cleanup ~30 lines) — defer
+unless upstream regresses or stub workaround breaks.
