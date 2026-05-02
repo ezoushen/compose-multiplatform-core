@@ -1,0 +1,652 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.jetbrains.compose.ui",
+    "module": "ui-geometry",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-geometry-9999.0.0-SNAPSHOT.jar",
+          "url": "ui-geometry-9999.0.0-SNAPSHOT.jar",
+          "size": 9138,
+          "sha512": "e4efa662f6c50bfa605819f9ea2e9a55c6b7b0056ad38b566c6354c7960a010545187d3f73fb0fc9c62b5cdb4668092b21ad4802930185072c616e53b7daa90a",
+          "sha256": "16ee911b8b3e51d69cc08981d95723a1682d578fefaf7f8e8a54d5555bf85925",
+          "sha1": "247a8d39363805d134e91695c47a10d85961ec93",
+          "md5": "ddfd778a510a4a398527bc06ebcfd1a7"
+        }
+      ]
+    },
+    {
+      "name": "metadataSourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "ui-geometry-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "ui-geometry-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 21319,
+          "sha512": "f01304f72a64d4f4501ecc2f07ed0e8507277c1c599e7c1c32cd50236504fd0d489a67f18caca2fb4464f213fdc49186cc10cf28dd1c6bd8b87ae1dee81189c8",
+          "sha256": "4d1dab1b80fc0a3a71db085c6cdfb7957a14f58e23686f2963a53968e51197d1",
+          "sha1": "d899607f8e22d9157de20bbea84b2a25956ddeb2",
+          "md5": "98913000dba90df69c0637ba13448014"
+        }
+      ]
+    },
+    {
+      "name": "debugApiElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "debugRuntimeElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ]
+    },
+    {
+      "name": "debugSourcesElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "fake-sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "fake-sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-desktop/9999.0.0-SNAPSHOT/ui-geometry-desktop-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-desktop",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-desktop/9999.0.0-SNAPSHOT/ui-geometry-desktop-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-desktop",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-desktop/9999.0.0-SNAPSHOT/ui-geometry-desktop-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-desktop",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-js/9999.0.0-SNAPSHOT/ui-geometry-js-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-js",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-js/9999.0.0-SNAPSHOT/ui-geometry-js-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-js",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-js/9999.0.0-SNAPSHOT/ui-geometry-js-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-js",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-macosarm64/9999.0.0-SNAPSHOT/ui-geometry-macosarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-macosarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-macosarm64/9999.0.0-SNAPSHOT/ui-geometry-macosarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-macosarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-macosarm64/9999.0.0-SNAPSHOT/ui-geometry-macosarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-macosarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-macosx64/9999.0.0-SNAPSHOT/ui-geometry-macosx64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-macosx64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-macosx64/9999.0.0-SNAPSHOT/ui-geometry-macosx64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-macosx64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-macosx64/9999.0.0-SNAPSHOT/ui-geometry-macosx64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-macosx64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitarm64/9999.0.0-SNAPSHOT/ui-geometry-uikitarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitarm64/9999.0.0-SNAPSHOT/ui-geometry-uikitarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitarm64/9999.0.0-SNAPSHOT/ui-geometry-uikitarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitsimarm64/9999.0.0-SNAPSHOT/ui-geometry-uikitsimarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitsimarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitsimarm64/9999.0.0-SNAPSHOT/ui-geometry-uikitsimarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitsimarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitsimarm64/9999.0.0-SNAPSHOT/ui-geometry-uikitsimarm64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitsimarm64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitx64/9999.0.0-SNAPSHOT/ui-geometry-uikitx64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitx64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitx64/9999.0.0-SNAPSHOT/ui-geometry-uikitx64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitx64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "uikitX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-uikitx64/9999.0.0-SNAPSHOT/ui-geometry-uikitx64-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-uikitx64",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "wasmJsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-wasm-js/9999.0.0-SNAPSHOT/ui-geometry-wasm-js-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-wasm-js",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "wasmJsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-wasm-js/9999.0.0-SNAPSHOT/ui-geometry-wasm-js-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-wasm-js",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "wasmJsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../ui-geometry-wasm-js/9999.0.0-SNAPSHOT/ui-geometry-wasm-js-9999.0.0-SNAPSHOT.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-geometry-wasm-js",
+        "version": "9999.0.0-SNAPSHOT"
+      }
+    }
+  ]
+}

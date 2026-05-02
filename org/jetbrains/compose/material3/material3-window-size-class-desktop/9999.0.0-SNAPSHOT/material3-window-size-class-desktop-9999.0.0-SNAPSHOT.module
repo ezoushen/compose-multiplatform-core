@@ -1,0 +1,150 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../material3-window-size-class/9999.0.0-SNAPSHOT/material3-window-size-class-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3",
+    "module": "material3-window-size-class",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-unit",
+          "version": {
+            "requires": "1.9.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "material3-window-size-class-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "material3-window-size-class-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 18216,
+          "sha512": "046acbd4e00b9232a48721a2af05ffb3eadb0db019e18fb828b45e80fc53cebe3eb7786724067e216cc0eb2bac99cd13dc320e8f0bef8d347215da8c5ecf7653",
+          "sha256": "60b221e81b0e0d52b40dc60db44fba1caf8680bd220fb5aaab61fd88fb6cb230",
+          "sha1": "b34fe4ed55061757b747bc20df61009a40b9dd66",
+          "md5": "52cddf83b0b11d8e8bc3a39321a8b51c"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-unit",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "material3-window-size-class-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "material3-window-size-class-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 18216,
+          "sha512": "046acbd4e00b9232a48721a2af05ffb3eadb0db019e18fb828b45e80fc53cebe3eb7786724067e216cc0eb2bac99cd13dc320e8f0bef8d347215da8c5ecf7653",
+          "sha256": "60b221e81b0e0d52b40dc60db44fba1caf8680bd220fb5aaab61fd88fb6cb230",
+          "sha1": "b34fe4ed55061757b747bc20df61009a40b9dd66",
+          "md5": "52cddf83b0b11d8e8bc3a39321a8b51c"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "material3-window-size-class-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "material3-window-size-class-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 8204,
+          "sha512": "1ca98539adeecad7029f9dc3b7c8d4825e0985570d4b3abb9e198f83982b68e096ae538b687cd2e2ee2c5917c78fb9ac2d79456460ea742d4ef27b4eb1bf7345",
+          "sha256": "a048d0b615334df6736c7310531c035ef6bf7e7716fe7910394bc46e69c7ae98",
+          "sha1": "efd8fe716403d5d72f28857a154d017eecda8efc",
+          "md5": "cbeb691f510b3bef8461af8c35288112"
+        }
+      ]
+    }
+  ]
+}

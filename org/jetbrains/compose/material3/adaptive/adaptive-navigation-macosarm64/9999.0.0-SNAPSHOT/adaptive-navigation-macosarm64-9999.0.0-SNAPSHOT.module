@@ -1,0 +1,158 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../adaptive-navigation/9999.0.0-SNAPSHOT/adaptive-navigation-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3.adaptive",
+    "module": "adaptive-navigation",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive-layout",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-navigation-macosArm64Main-9999.0.0-SNAPSHOT.klib",
+          "url": "adaptive-navigation-macosarm64-9999.0.0-SNAPSHOT.klib",
+          "size": 30447,
+          "sha512": "214ad7ad698da09ccfafd9ff198497bae40db74f7a8e23b3e229ba4c4138dc9b8d0270b99824704b0a10bcd908234a3a3893d1e0f2f614c87ac9a9aaf4235570",
+          "sha256": "26420e6cc2e3851cd3b46a5b0fd60ff4b58a374ef49c421e574339e762a48006",
+          "sha1": "b97a28529f52e707d2ae3d018286687c35617bb3",
+          "md5": "53d77d9a936063a5823d0d848bfd67ef"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "adaptive-navigation-macosarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "adaptive-navigation-macosarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 7011,
+          "sha512": "f608eee6009186da15c86c578c9b2e14dba90211f822863bc619070b71a32f369867baf9b1971a6462c3e9791fe400a2bd339525a27a5e94dbb5843dc0cd58ad",
+          "sha256": "eb9d87a6bf8704e2f83f7c7d163c964e690963fb085c489a07e639a5a070b5e2",
+          "sha1": "80ce7864efedd15f7e1a04a048319a5d3d45e315",
+          "md5": "cc97ad02c66e4dfdc141d2c6fd1a0ba2"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive-layout",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-navigation-macosarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "url": "adaptive-navigation-macosarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "size": 261,
+          "sha512": "1487e5a20c9e4d74f298e07c42e96a61be11b7a768c3fbc199ee138cd68e1fc2267d1cfe3f11f288acc05df755315344d052cc5f6f751f126ab4fe1caa5125ea",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "sha1": "2ad14aed781c4a73ed4dbb421966d408a0a06686",
+          "md5": "f43436d6bec321290f6af228ad602604"
+        }
+      ]
+    }
+  ]
+}

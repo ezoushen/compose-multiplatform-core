@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.jetbrains.compose.ui</groupId>
+  <artifactId>ui-graphics-uikitarm64</artifactId>
+  <versioning>
+    <latest>9999.0.0-SNAPSHOT</latest>
+    <versions>
+      <version>9999.0.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20260502063700</lastUpdated>
+  </versioning>
+</metadata>

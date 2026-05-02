@@ -1,0 +1,102 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../runtime/9999.0.0-SNAPSHOT/runtime-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.runtime",
+    "module": "runtime",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "runtime-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "runtime-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 416,
+          "sha512": "cec8fcf3ef05065a8ebc31311d6fc3b2029717d8942560ba2aeabe66e5bb08da4d440bc4ec72479d078a555cfc19eef3848cb730b344a46e3b29a9a1e4011a30",
+          "sha256": "05f5570c0a7ea8addd6fe9507a70f293efa7f1450d8b9b16dc3c8fee21cc6127",
+          "sha1": "edbd39fc9691f4ba1e29c6690341148db4272752",
+          "md5": "c25a54d206562099d86e41defd73c526"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "runtime-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "runtime-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 416,
+          "sha512": "cec8fcf3ef05065a8ebc31311d6fc3b2029717d8942560ba2aeabe66e5bb08da4d440bc4ec72479d078a555cfc19eef3848cb730b344a46e3b29a9a1e4011a30",
+          "sha256": "05f5570c0a7ea8addd6fe9507a70f293efa7f1450d8b9b16dc3c8fee21cc6127",
+          "sha1": "edbd39fc9691f4ba1e29c6690341148db4272752",
+          "md5": "c25a54d206562099d86e41defd73c526"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "runtime-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "runtime-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 1141,
+          "sha512": "ccba4d9d5523034b910bf1cfe65b9d5adf77e6540729724533210de338099a52db64249a9f620f8bbdc0342e84713b5baca2b510a2e56a91b845c07d259aab37",
+          "sha256": "6f27472e1e5fe26259f156b498f6745feb57b651b673d65fe9938a7fec2d9065",
+          "sha1": "b557946ae7e4f6be395dca186f61b64f4766ce6a",
+          "md5": "a2ed51ed351ce630c721aa35c255c2a2"
+        }
+      ]
+    }
+  ]
+}

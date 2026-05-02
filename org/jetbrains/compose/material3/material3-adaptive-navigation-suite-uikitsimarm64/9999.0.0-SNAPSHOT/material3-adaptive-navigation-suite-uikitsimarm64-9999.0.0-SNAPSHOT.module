@@ -1,0 +1,186 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../material3-adaptive-navigation-suite/9999.0.0-SNAPSHOT/material3-adaptive-navigation-suite-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3",
+    "module": "material3-adaptive-navigation-suite",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "1.4.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3",
+          "module": "material3",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "material3-adaptive-navigation-suite-uikitSimArm64Main-9999.0.0-SNAPSHOT.klib",
+          "url": "material3-adaptive-navigation-suite-uikitsimarm64-9999.0.0-SNAPSHOT.klib",
+          "size": 107954,
+          "sha512": "dc47a8a5789af3a155614840f8fcd2039263ecd61ad37bff5867b10a897ec997d026e561238fa9238c6820c91a35823813071086ee8d62c084f481ef218e4887",
+          "sha256": "11e3106b50f79685dc01bf66e0d5be04081b8ffe3d4d7cc9a56b8c09ea69fd04",
+          "sha1": "55bb7c901b192998236b2d76c052b351961a83ad",
+          "md5": "63ee1a2375c1c38ff2583c0f2c70f266"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "material3-adaptive-navigation-suite-uikitsimarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "material3-adaptive-navigation-suite-uikitsimarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 15096,
+          "sha512": "990423a562896f6945a12fa9f3e9607f29cd83545904bfad70e5ea871cbd4eb98ba13f9817786f42bd0fc3a4a45d7db56deadab27514dfd7ceed7b3bc0b401a4",
+          "sha256": "dd712ccb290efd7018567a68d236a1d4b086b8e6fe1fbea9f126a08d77d710a9",
+          "sha1": "bc21af8f2e3ecd119a2aec6022df27e7aa460069",
+          "md5": "a7a5ab93abcb166cf404a69762b2524f"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "1.4.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3",
+          "module": "material3",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "material3-adaptive-navigation-suite-uikitsimarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "url": "material3-adaptive-navigation-suite-uikitsimarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "size": 261,
+          "sha512": "1487e5a20c9e4d74f298e07c42e96a61be11b7a768c3fbc199ee138cd68e1fc2267d1cfe3f11f288acc05df755315344d052cc5f6f751f126ab4fe1caa5125ea",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "sha1": "2ad14aed781c4a73ed4dbb421966d408a0a06686",
+          "md5": "f43436d6bec321290f6af228ad602604"
+        }
+      ]
+    }
+  ]
+}

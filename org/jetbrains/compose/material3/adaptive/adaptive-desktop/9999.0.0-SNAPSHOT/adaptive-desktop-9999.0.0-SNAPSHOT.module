@@ -1,0 +1,143 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../adaptive/9999.0.0-SNAPSHOT/adaptive-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3.adaptive",
+    "module": "adaptive",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "adaptive-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 20627,
+          "sha512": "aa898c229adb7765909c1f49502d914925f73e404c8abadf261a8797bc74fc8428cf058077468c9e0037b25e80698a0c777fd97124a99add231e62ea0b30b905",
+          "sha256": "09f65b6beb9599282732f71f9dccd2f38e349705aa829f9c6694461b565a14a4",
+          "sha1": "5f0999f906a745f31e94bed468036a40caadd1ed",
+          "md5": "5c23b0e5070ef66e74ca05e485a53809"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "adaptive-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 20627,
+          "sha512": "aa898c229adb7765909c1f49502d914925f73e404c8abadf261a8797bc74fc8428cf058077468c9e0037b25e80698a0c777fd97124a99add231e62ea0b30b905",
+          "sha256": "09f65b6beb9599282732f71f9dccd2f38e349705aa829f9c6694461b565a14a4",
+          "sha1": "5f0999f906a745f31e94bed468036a40caadd1ed",
+          "md5": "5c23b0e5070ef66e74ca05e485a53809"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "adaptive-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "adaptive-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 10465,
+          "sha512": "043cc011d409600ec20af015664b551f71e676a7aab7555bff14842a0a24d62755d412c49111d66a374c325d898b8ddbab152e0ec600b727d6399fab6bb05fdf",
+          "sha256": "36c942eb377d47523a8f7b9c801c282caaa354505e8347aa61504fe2682d040c",
+          "sha1": "864bfcd3fbbcb35e2a5454820675e6eddcf54978",
+          "md5": "23a48eebc6f9dd8f2266b85558cec071"
+        }
+      ]
+    }
+  ]
+}

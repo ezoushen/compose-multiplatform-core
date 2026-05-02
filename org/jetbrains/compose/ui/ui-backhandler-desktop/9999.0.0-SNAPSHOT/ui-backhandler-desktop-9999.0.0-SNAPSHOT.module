@@ -1,0 +1,134 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../ui-backhandler/9999.0.0-SNAPSHOT/ui-backhandler-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.ui",
+    "module": "ui-backhandler",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "ui-backhandler-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "ui-backhandler-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 21557,
+          "sha512": "53fdea78c339112fd5a87961b9ecc139ec32f884f3583b7014febf56ffefac2ebfa5f9a938b37973b2b3de9f97241c080130471e823e14609043a163117d18a3",
+          "sha256": "1babf68f5a05cbe1ba8cf934f0e575bb0d0b184444514e6aa7ec1f8004c9ce33",
+          "sha1": "ed725f86a0fdff73fb37561ffb606166725e4b6f",
+          "md5": "82133368fc2fe04ab219636dc220ee76"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.navigationevent",
+          "module": "navigationevent",
+          "version": {
+            "requires": "1.0.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.annotation-internal",
+          "module": "annotation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-backhandler-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "ui-backhandler-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 21557,
+          "sha512": "53fdea78c339112fd5a87961b9ecc139ec32f884f3583b7014febf56ffefac2ebfa5f9a938b37973b2b3de9f97241c080130471e823e14609043a163117d18a3",
+          "sha256": "1babf68f5a05cbe1ba8cf934f0e575bb0d0b184444514e6aa7ec1f8004c9ce33",
+          "sha1": "ed725f86a0fdff73fb37561ffb606166725e4b6f",
+          "md5": "82133368fc2fe04ab219636dc220ee76"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "ui-backhandler-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "ui-backhandler-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 6999,
+          "sha512": "474d13d744bb6e06c082789f99798bc91383210ac7d14c5d9eace3c20bf6e8db689abc6e375687ad658a7163496360f763b07939e3a1012c96032d9e2973d4cc",
+          "sha256": "38dbbb0950845a8c579436ecc5aa1088010f60fc05bb7ae8e1c2679cb7985c82",
+          "sha1": "7d14f6fe2e25f5ccba5a986bdc1724ca7725ecc7",
+          "md5": "3c0c09e86c4d8f22aa423eb030aae4c3"
+        }
+      ]
+    }
+  ]
+}

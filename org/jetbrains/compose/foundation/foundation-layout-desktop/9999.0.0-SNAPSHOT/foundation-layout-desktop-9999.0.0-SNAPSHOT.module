@@ -1,0 +1,143 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../foundation-layout/9999.0.0-SNAPSHOT/foundation-layout-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.foundation",
+    "module": "foundation-layout",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "foundation-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "foundation-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 558534,
+          "sha512": "10768ad531972709ede7c582a1d978c2ba6c3cb222484f7fb3bbe0b902a07bf30e720acc833e8f0f05ff8c2aa6adc3f92c3fa9adfc00b03240e998bf353c733c",
+          "sha256": "bd086a9f5ce453967ea1124bb709612bca14a4fbb6522a6023092a8866ee4ef0",
+          "sha1": "263364f922ef14fb64f1313a384a0c31cd6f3fa5",
+          "md5": "ce72bf2a017c30355e1fa53b86162124"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.annotation-internal",
+          "module": "annotation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "foundation-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "foundation-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 558534,
+          "sha512": "10768ad531972709ede7c582a1d978c2ba6c3cb222484f7fb3bbe0b902a07bf30e720acc833e8f0f05ff8c2aa6adc3f92c3fa9adfc00b03240e998bf353c733c",
+          "sha256": "bd086a9f5ce453967ea1124bb709612bca14a4fbb6522a6023092a8866ee4ef0",
+          "sha1": "263364f922ef14fb64f1313a384a0c31cd6f3fa5",
+          "md5": "ce72bf2a017c30355e1fa53b86162124"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "foundation-layout-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "foundation-layout-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 91851,
+          "sha512": "0fd6b038b227e615616ff8ffbac03a87d85a7c051b749a0453420cafb2634b65e30dc3eb393de0bcceca1099e17eddd2818ec84d52d37b01f6ea958998be22cf",
+          "sha256": "e29d4c864cdddff7826a2237cda19b4581a8dbe55aa98e57a2af72f7f57ab610",
+          "sha1": "5cb73527cead13ea544947dbac95680d908e2cdd",
+          "md5": "62df5642d216051d84dc65a48bdbfc82"
+        }
+      ]
+    }
+  ]
+}

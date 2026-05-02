@@ -1,0 +1,172 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../adaptive-navigation3/9999.0.0-SNAPSHOT/adaptive-navigation3-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3.adaptive",
+    "module": "adaptive-navigation3",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.collection",
+          "module": "collection",
+          "version": {
+            "requires": "1.5.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.navigation3",
+          "module": "navigation3-ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.navigationevent",
+          "module": "navigationevent-compose",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive-navigation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-navigation3-uikitSimArm64Main-9999.0.0-SNAPSHOT.klib",
+          "url": "adaptive-navigation3-uikitsimarm64-9999.0.0-SNAPSHOT.klib",
+          "size": 58659,
+          "sha512": "441375e72ad1a59af7639c02f49cfc3ce541df965aaef086863a99a9f39fe44d5a18365016219da511b72e4bb6c00e52d64f9995db20b10e33916cf1734f8874",
+          "sha256": "ff2b3b1e6c707e0bbc5cadc6f5accebc51692b5452485b0c31f3bd4c847c40af",
+          "sha1": "4cb77b9f75078be4089b68d7a1af457a6e7b6e6a",
+          "md5": "0f766513de7b453ae85a7a5066e9bdfc"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "adaptive-navigation3-uikitsimarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "adaptive-navigation3-uikitsimarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 10109,
+          "sha512": "2ca3aebdee5358e948fa9b5784eb926c7af3e4fe956eaf08879f5a50fc839a3115c5b316e77faecea9cd93c447582843e4f4581e2dafe6f13355201521686862",
+          "sha256": "4e150f056f71370f5a8fc3674f97753101481c91018bd24b07b82268722f8499",
+          "sha1": "fa3cc013177dba60f8db39558b4320b8bced5ccc",
+          "md5": "cb06b5983f11dda7aba1490acffcafe9"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.collection",
+          "module": "collection",
+          "version": {
+            "requires": "1.5.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.navigation3",
+          "module": "navigation3-ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.navigationevent",
+          "module": "navigationevent-compose",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive-navigation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-navigation3-uikitsimarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "url": "adaptive-navigation3-uikitsimarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "size": 261,
+          "sha512": "1487e5a20c9e4d74f298e07c42e96a61be11b7a768c3fbc199ee138cd68e1fc2267d1cfe3f11f288acc05df755315344d052cc5f6f751f126ab4fe1caa5125ea",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "sha1": "2ad14aed781c4a73ed4dbb421966d408a0a06686",
+          "md5": "f43436d6bec321290f6af228ad602604"
+        }
+      ]
+    }
+  ]
+}

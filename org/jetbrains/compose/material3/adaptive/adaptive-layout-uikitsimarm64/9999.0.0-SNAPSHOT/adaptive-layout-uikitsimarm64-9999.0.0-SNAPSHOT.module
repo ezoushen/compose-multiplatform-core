@@ -1,0 +1,256 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../adaptive-layout/9999.0.0-SNAPSHOT/adaptive-layout-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3.adaptive",
+    "module": "adaptive-layout",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation-layout",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-layout-uikitSimArm64Main-9999.0.0-SNAPSHOT.klib",
+          "url": "adaptive-layout-uikitsimarm64-9999.0.0-SNAPSHOT.klib",
+          "size": 540190,
+          "sha512": "3fc86aed99ea9b254736d18b6342dced3c98cdd0154b62b965ed51b4b9010cabe191ee60dbb474689b3d10bf07a3ce614c1a2b62f9979f40aea9812a75bbeac3",
+          "sha256": "c2c9828386596f53e0161c77b32c4c5097117a2814d43599b206331a62ff001a",
+          "sha1": "3306608f15c333242af3861a56b3ce676fd89aef",
+          "md5": "3b96ad7c6816c843b1863bdaee4e10c0"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "adaptive-layout-uikitsimarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "adaptive-layout-uikitsimarm64-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 174567,
+          "sha512": "170fa265b8808acf227b6a9250bd3ac75074cbaaefa435647578097ece8f60eff064bc8b0ec2b2a3c65ac938ded2b2c3b027b1a7bb2fd4fc3b19ee1351714806",
+          "sha256": "ea103a3a02bf01e3b3f1d61f7bc97d8812ee164e099267139573ab2c28c44ea2",
+          "sha1": "890c40579f46e6eac658e1315dbd4ef3c3489ab2",
+          "md5": "26a65c54cd64956f3e615bf2b6885419"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation-layout",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-layout-uikitsimarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "url": "adaptive-layout-uikitsimarm64-9999.0.0-SNAPSHOT-metadata.jar",
+          "size": 2655,
+          "sha512": "fecf48739af4b8a4bce5edc267f4766f3d996c2fce457f1c3668a688d856a5ab88326bc9c2673b700e79dbf243c805a45e7f08c8a006a78bfc57f3835ca369ea",
+          "sha256": "46222f3fdc7f9c8b330069b95edcffc1d31a1d54f602e45dac4d3d310b8333cd",
+          "sha1": "2c5cb4f7f078e53c21e5a6ddd4ad8a72b5fbcf1e",
+          "md5": "28c102f360b5ad0eb10339c9958a8777"
+        }
+      ]
+    }
+  ]
+}

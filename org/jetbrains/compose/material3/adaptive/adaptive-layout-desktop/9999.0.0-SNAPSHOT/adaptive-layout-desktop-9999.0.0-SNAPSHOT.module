@@ -1,0 +1,192 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../adaptive-layout/9999.0.0-SNAPSHOT/adaptive-layout-9999.0.0-SNAPSHOT.module",
+    "group": "org.jetbrains.compose.material3.adaptive",
+    "module": "adaptive-layout",
+    "version": "9999.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "adaptive-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 575414,
+          "sha512": "51f2adaa8206753562f356cd0101808fd133f4f103d09763b94529945d1128cba9162bfbc14916a1ad950e7470c0a8e7621e43c306f35b5840198ffa4b4848c7",
+          "sha256": "4cc0c3535f164ad7552765e0125680dee687ea435c102ab255f123dab176e0f2",
+          "sha1": "8dfc7190170b4fb3b367f8ab69423b9246093054",
+          "md5": "0a07009a8aaddde094eb273eb130c538"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.window",
+          "module": "window-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.animation",
+          "module": "animation-core",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation-layout",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material3.adaptive",
+          "module": "adaptive",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-geometry",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "9999.0.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "adaptive-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "url": "adaptive-layout-desktop-9999.0.0-SNAPSHOT.jar",
+          "size": 575414,
+          "sha512": "51f2adaa8206753562f356cd0101808fd133f4f103d09763b94529945d1128cba9162bfbc14916a1ad950e7470c0a8e7621e43c306f35b5840198ffa4b4848c7",
+          "sha256": "4cc0c3535f164ad7552765e0125680dee687ea435c102ab255f123dab176e0f2",
+          "sha1": "8dfc7190170b4fb3b367f8ab69423b9246093054",
+          "md5": "0a07009a8aaddde094eb273eb130c538"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "adaptive-layout-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "url": "adaptive-layout-desktop-9999.0.0-SNAPSHOT-sources.jar",
+          "size": 174465,
+          "sha512": "1ea4baf4b8c6cf054f7124068b061902323e5d7bdc5108c5b548b6e1b23b63d7f88a8e7a67d0247c0681afe93a735890839feb20e97c49efb20937c7d093fdff",
+          "sha256": "24b4ce96285493be4bc5d4071fabead44351ec38a975bc8788014d7263eaac52",
+          "sha1": "a9d3d258ae107fbad33d131b7ff556d4c514a104",
+          "md5": "80ef98f73aff003674668d2e93540e0f"
+        }
+      ]
+    }
+  ]
+}
