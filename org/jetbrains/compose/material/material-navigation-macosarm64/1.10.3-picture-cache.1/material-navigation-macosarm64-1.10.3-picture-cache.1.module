@@ -1,0 +1,158 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../material-navigation/1.10.3-picture-cache.1/material-navigation-1.10.3-picture-cache.1.module",
+    "group": "org.jetbrains.compose.material",
+    "module": "material-navigation",
+    "version": "1.10.3-picture-cache.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.navigation",
+          "module": "navigation-compose",
+          "version": {
+            "requires": "2.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-backhandler",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "material-navigation-macosArm64Main-1.10.3-picture-cache.1.klib",
+          "url": "material-navigation-macosarm64-1.10.3-picture-cache.1.klib",
+          "size": 44410,
+          "sha512": "79c6c39e56517bf003b07103af02a491c5ba6a16bd639be610724cd4a406a00ce889d03483984e14bad6be29b7f8eb7cd51f49b4e1f9de08b972bd684aa3f3ff",
+          "sha256": "341c9bec9e1719a8ac4e967de7d14547bd5bc3c2389687f49bc3de4c329fde1c",
+          "sha1": "453356634e7fb2115996d5f33a5c90963e471e77",
+          "md5": "b996ca249b0f12224e9f2d96819e626b"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "material-navigation-macosarm64-1.10.3-picture-cache.1-sources.jar",
+          "url": "material-navigation-macosarm64-1.10.3-picture-cache.1-sources.jar",
+          "size": 12012,
+          "sha512": "b89e05be48bb53666317cc9255d15a81d42ea5dbf96e049e2838228b08651de1bf41221d9855f7cc730abb0e525ff8d7eafd81b206bfd20bd5a0c09c3038d9cc",
+          "sha256": "65a5912922822d3371bcaa78403e3ca24474e9873bdbe82c4f7f60c2a3f584e4",
+          "sha1": "1dd882f9a1c58e5c5276a0723a46d5921e4acd83",
+          "md5": "4c4664955adfd9c8b8bed1766b2aca32"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.androidx.navigation",
+          "module": "navigation-compose",
+          "version": {
+            "requires": "2.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-backhandler",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "material-navigation-macosarm64-1.10.3-picture-cache.1-metadata.jar",
+          "url": "material-navigation-macosarm64-1.10.3-picture-cache.1-metadata.jar",
+          "size": 261,
+          "sha512": "1487e5a20c9e4d74f298e07c42e96a61be11b7a768c3fbc199ee138cd68e1fc2267d1cfe3f11f288acc05df755315344d052cc5f6f751f126ab4fe1caa5125ea",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "sha1": "2ad14aed781c4a73ed4dbb421966d408a0a06686",
+          "md5": "f43436d6bec321290f6af228ad602604"
+        }
+      ]
+    }
+  ]
+}

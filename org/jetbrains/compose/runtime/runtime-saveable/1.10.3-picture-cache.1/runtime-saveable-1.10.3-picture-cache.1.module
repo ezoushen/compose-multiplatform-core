@@ -1,0 +1,1156 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.jetbrains.compose.runtime",
+    "module": "runtime-saveable",
+    "version": "1.10.3-picture-cache.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.lifecycle",
+          "module": "lifecycle-runtime-compose",
+          "version": {
+            "requires": "2.9.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.savedstate",
+          "module": "savedstate-compose",
+          "version": {
+            "requires": "1.3.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "runtime-saveable-1.10.3-picture-cache.1.jar",
+          "url": "runtime-saveable-1.10.3-picture-cache.1.jar",
+          "size": 2293,
+          "sha512": "63154a96b0d1442f38b9cd8ade3e825a08bfafca4f5f134e1289b8620055596af9775940d9f7c8da732ebddc5151f0f3688e66005ec709f81d601ba5603d42af",
+          "sha256": "dd1f459519c3d3440eb578ec412ad06919c9d36b9c17e5cdb398d6bfb08c22fb",
+          "sha1": "3d1def3e2acd1080bd491251e5222dceecb46ad5",
+          "md5": "4bb0195929c0a7839305ed875ca9a9e5"
+        }
+      ]
+    },
+    {
+      "name": "metadataSourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "runtime-saveable-1.10.3-picture-cache.1-sources.jar",
+          "url": "runtime-saveable-1.10.3-picture-cache.1-sources.jar",
+          "size": 1141,
+          "sha512": "ccba4d9d5523034b910bf1cfe65b9d5adf77e6540729724533210de338099a52db64249a9f620f8bbdc0342e84713b5baca2b510a2e56a91b845c07d259aab37",
+          "sha256": "6f27472e1e5fe26259f156b498f6745feb57b651b673d65fe9938a7fec2d9065",
+          "sha1": "b557946ae7e4f6be395dca186f61b64f4766ce6a",
+          "md5": "a2ed51ed351ce630c721aa35c255c2a2"
+        }
+      ]
+    },
+    {
+      "name": "debugApiElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.savedstate",
+          "module": "savedstate-compose",
+          "version": {
+            "requires": "1.3.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "debugRuntimeElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.lifecycle",
+          "module": "lifecycle-runtime-compose",
+          "version": {
+            "requires": "2.9.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.savedstate",
+          "module": "savedstate-compose",
+          "version": {
+            "requires": "1.3.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "debugSourcesElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "fake-sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.savedstate",
+          "module": "savedstate-compose",
+          "version": {
+            "requires": "1.3.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.lifecycle",
+          "module": "lifecycle-runtime-compose",
+          "version": {
+            "requires": "2.9.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.androidx.savedstate",
+          "module": "savedstate-compose",
+          "version": {
+            "requires": "1.3.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "fake-sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime-saveable",
+          "version": {
+            "requires": "1.10.3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-desktop/1.10.3-picture-cache.1/runtime-saveable-desktop-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-desktop",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-desktop/1.10.3-picture-cache.1/runtime-saveable-desktop-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-desktop",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-desktop/1.10.3-picture-cache.1/runtime-saveable-desktop-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-desktop",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "jsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-js/1.10.3-picture-cache.1/runtime-saveable-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "jsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-js/1.10.3-picture-cache.1/runtime-saveable-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "jsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-js/1.10.3-picture-cache.1/runtime-saveable-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "linuxArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "linux_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-linuxarm64/1.10.3-picture-cache.1/runtime-saveable-linuxarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-linuxarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "linuxArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "linux_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-linuxarm64/1.10.3-picture-cache.1/runtime-saveable-linuxarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-linuxarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "linuxX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-linuxx64/1.10.3-picture-cache.1/runtime-saveable-linuxx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-linuxx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "linuxX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-linuxx64/1.10.3-picture-cache.1/runtime-saveable-linuxx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-linuxx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-macosarm64/1.10.3-picture-cache.1/runtime-saveable-macosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-macosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-macosarm64/1.10.3-picture-cache.1/runtime-saveable-macosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-macosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-macosarm64/1.10.3-picture-cache.1/runtime-saveable-macosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-macosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-macosx64/1.10.3-picture-cache.1/runtime-saveable-macosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-macosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-macosx64/1.10.3-picture-cache.1/runtime-saveable-macosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-macosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-macosx64/1.10.3-picture-cache.1/runtime-saveable-macosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-macosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "mingwX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "mingw_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-mingwx64/1.10.3-picture-cache.1/runtime-saveable-mingwx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-mingwx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "mingwX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "mingw_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-mingwx64/1.10.3-picture-cache.1/runtime-saveable-mingwx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-mingwx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "tvos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvosarm64/1.10.3-picture-cache.1/runtime-saveable-tvosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "tvos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvosarm64/1.10.3-picture-cache.1/runtime-saveable-tvosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "tvos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvosarm64/1.10.3-picture-cache.1/runtime-saveable-tvosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "tvos_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvossimulatorarm64/1.10.3-picture-cache.1/runtime-saveable-tvossimulatorarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvossimulatorarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosSimulatorArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "tvos_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvossimulatorarm64/1.10.3-picture-cache.1/runtime-saveable-tvossimulatorarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvossimulatorarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "tvos_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvossimulatorarm64/1.10.3-picture-cache.1/runtime-saveable-tvossimulatorarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvossimulatorarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "tvos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvosx64/1.10.3-picture-cache.1/runtime-saveable-tvosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "tvos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvosx64/1.10.3-picture-cache.1/runtime-saveable-tvosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "tvosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "tvos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-tvosx64/1.10.3-picture-cache.1/runtime-saveable-tvosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-tvosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitarm64/1.10.3-picture-cache.1/runtime-saveable-uikitarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitarm64/1.10.3-picture-cache.1/runtime-saveable-uikitarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitarm64/1.10.3-picture-cache.1/runtime-saveable-uikitarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitsimarm64/1.10.3-picture-cache.1/runtime-saveable-uikitsimarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitsimarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitsimarm64/1.10.3-picture-cache.1/runtime-saveable-uikitsimarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitsimarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitsimarm64/1.10.3-picture-cache.1/runtime-saveable-uikitsimarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitsimarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitx64/1.10.3-picture-cache.1/runtime-saveable-uikitx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitx64/1.10.3-picture-cache.1/runtime-saveable-uikitx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-uikitx64/1.10.3-picture-cache.1/runtime-saveable-uikitx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-uikitx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "wasmJsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-wasm-js/1.10.3-picture-cache.1/runtime-saveable-wasm-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-wasm-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "wasmJsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-wasm-js/1.10.3-picture-cache.1/runtime-saveable-wasm-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-wasm-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "wasmJsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-wasm-js/1.10.3-picture-cache.1/runtime-saveable-wasm-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-wasm-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosArm32ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "watchos_arm32",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosarm32/1.10.3-picture-cache.1/runtime-saveable-watchosarm32-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosarm32",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosArm32SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "watchos_arm32",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosarm32/1.10.3-picture-cache.1/runtime-saveable-watchosarm32-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosarm32",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosArm32MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "watchos_arm32",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosarm32/1.10.3-picture-cache.1/runtime-saveable-watchosarm32-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosarm32",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "watchos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosarm64/1.10.3-picture-cache.1/runtime-saveable-watchosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "watchos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosarm64/1.10.3-picture-cache.1/runtime-saveable-watchosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "watchos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosarm64/1.10.3-picture-cache.1/runtime-saveable-watchosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "watchos_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchossimulatorarm64/1.10.3-picture-cache.1/runtime-saveable-watchossimulatorarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchossimulatorarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosSimulatorArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "watchos_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchossimulatorarm64/1.10.3-picture-cache.1/runtime-saveable-watchossimulatorarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchossimulatorarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "watchos_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchossimulatorarm64/1.10.3-picture-cache.1/runtime-saveable-watchossimulatorarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchossimulatorarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "watchos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosx64/1.10.3-picture-cache.1/runtime-saveable-watchosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "watchos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosx64/1.10.3-picture-cache.1/runtime-saveable-watchosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "watchosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "watchos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../runtime-saveable-watchosx64/1.10.3-picture-cache.1/runtime-saveable-watchosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.runtime",
+        "module": "runtime-saveable-watchosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    }
+  ]
+}

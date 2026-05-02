@@ -1,0 +1,106 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../ui-util/1.10.3-picture-cache.1/ui-util-1.10.3-picture-cache.1.module",
+    "group": "org.jetbrains.compose.ui",
+    "module": "ui-util",
+    "version": "1.10.3-picture-cache.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "ui-util-desktop-1.10.3-picture-cache.1.jar",
+          "url": "ui-util-desktop-1.10.3-picture-cache.1.jar",
+          "size": 18548,
+          "sha512": "a3dc5f08a3f2b31a035a40cac1bb0702401c5d0cfeef1d779f58d46d29fc73538595287f9a36897845c8f495e6054231603351fd9322c46dc9b810ea39d0cb70",
+          "sha256": "7bfc93a8cad2974cdfd5a2c817e3083e0e3c48ef99e4dbba51eb98a14c92ed2d",
+          "sha1": "fe41825dccacb792ded7df579736a0ed919ee270",
+          "md5": "e987f56512148332ca73168ad7d2700d"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-util-desktop-1.10.3-picture-cache.1.jar",
+          "url": "ui-util-desktop-1.10.3-picture-cache.1.jar",
+          "size": 18548,
+          "sha512": "a3dc5f08a3f2b31a035a40cac1bb0702401c5d0cfeef1d779f58d46d29fc73538595287f9a36897845c8f495e6054231603351fd9322c46dc9b810ea39d0cb70",
+          "sha256": "7bfc93a8cad2974cdfd5a2c817e3083e0e3c48ef99e4dbba51eb98a14c92ed2d",
+          "sha1": "fe41825dccacb792ded7df579736a0ed919ee270",
+          "md5": "e987f56512148332ca73168ad7d2700d"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "ui-util-desktop-1.10.3-picture-cache.1-sources.jar",
+          "url": "ui-util-desktop-1.10.3-picture-cache.1-sources.jar",
+          "size": 15207,
+          "sha512": "4eec9475ef9de6f47e5e97839dfe5ec71839df78c662dbf58a2fc8c93a1b5df3ed19c5e100266fd541eb7276f52780b2e85c7d005caa1a76cde20a90b31eeba0",
+          "sha256": "5e59da26d188b62085ca7cebbccd834324c7062332fed53b1408281a62e4764f",
+          "sha1": "695a0886560ee97987cff93c35b308b1aa64b434",
+          "md5": "6a142f4a5b5ef6682737c530c9070963"
+        }
+      ]
+    }
+  ]
+}

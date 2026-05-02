@@ -1,0 +1,619 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.jetbrains.compose.ui",
+    "module": "ui-backhandler",
+    "version": "1.10.3-picture-cache.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.navigationevent",
+          "module": "navigationevent",
+          "version": {
+            "requires": "1.0.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.annotation-internal",
+          "module": "annotation",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "1.10.3-picture-cache.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-backhandler-metadata-1.10.3-picture-cache.1.jar",
+          "url": "ui-backhandler-1.10.3-picture-cache.1.jar",
+          "size": 7510,
+          "sha512": "da5349e7191bc63095de48028a2a9bf1e38f8b452642e58f7e53d6a4a5d7c6a081e9d666aaeba7758546144b47c09a9615d31a891181838e1d40f583dc016a60",
+          "sha256": "a32331b48694e76791cf41b1e161947ecd73b1cc36f6292c1bbbc73cc411776b",
+          "sha1": "f05a5ce2909f2afc87273a936d5b8102f790628c",
+          "md5": "c34365e1fd0dc0b3489b0fc7c96bc02b"
+        }
+      ]
+    },
+    {
+      "name": "metadataSourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "ui-backhandler-kotlin-1.10.3-picture-cache.1-sources.jar",
+          "url": "ui-backhandler-1.10.3-picture-cache.1-sources.jar",
+          "size": 6999,
+          "sha512": "474d13d744bb6e06c082789f99798bc91383210ac7d14c5d9eace3c20bf6e8db689abc6e375687ad658a7163496360f763b07939e3a1012c96032d9e2973d4cc",
+          "sha256": "38dbbb0950845a8c579436ecc5aa1088010f60fc05bb7ae8e1c2679cb7985c82",
+          "sha1": "7d14f6fe2e25f5ccba5a986bdc1724ca7725ecc7",
+          "md5": "3c0c09e86c4d8f22aa423eb030aae4c3"
+        }
+      ]
+    },
+    {
+      "name": "debugApiElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-android-debug/1.10.3-picture-cache.1/ui-backhandler-android-debug-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-android-debug",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "debugRuntimeElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-android-debug/1.10.3-picture-cache.1/ui-backhandler-android-debug-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-android-debug",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "debugSourcesElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "fake-sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-android-debug/1.10.3-picture-cache.1/ui-backhandler-android-debug-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-android-debug",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-android/1.10.3-picture-cache.1/ui-backhandler-android-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-android",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-android/1.10.3-picture-cache.1/ui-backhandler-android-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-android",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "fake-sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-android/1.10.3-picture-cache.1/ui-backhandler-android-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-android",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-desktop/1.10.3-picture-cache.1/ui-backhandler-desktop-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-desktop",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-desktop/1.10.3-picture-cache.1/ui-backhandler-desktop-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-desktop",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-desktop/1.10.3-picture-cache.1/ui-backhandler-desktop-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-desktop",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "jsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-js/1.10.3-picture-cache.1/ui-backhandler-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "jsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-js/1.10.3-picture-cache.1/ui-backhandler-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "jsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-js/1.10.3-picture-cache.1/ui-backhandler-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-macosarm64/1.10.3-picture-cache.1/ui-backhandler-macosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-macosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-macosarm64/1.10.3-picture-cache.1/ui-backhandler-macosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-macosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-macosarm64/1.10.3-picture-cache.1/ui-backhandler-macosarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-macosarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-macosx64/1.10.3-picture-cache.1/ui-backhandler-macosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-macosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-macosx64/1.10.3-picture-cache.1/ui-backhandler-macosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-macosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "macosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-macosx64/1.10.3-picture-cache.1/ui-backhandler-macosx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-macosx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitarm64/1.10.3-picture-cache.1/ui-backhandler-uikitarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitarm64/1.10.3-picture-cache.1/ui-backhandler-uikitarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitarm64/1.10.3-picture-cache.1/ui-backhandler-uikitarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitsimarm64/1.10.3-picture-cache.1/ui-backhandler-uikitsimarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitsimarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitsimarm64/1.10.3-picture-cache.1/ui-backhandler-uikitsimarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitsimarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitsimarm64/1.10.3-picture-cache.1/ui-backhandler-uikitsimarm64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitsimarm64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitx64/1.10.3-picture-cache.1/ui-backhandler-uikitx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitx64/1.10.3-picture-cache.1/ui-backhandler-uikitx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "uikitX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-uikitx64/1.10.3-picture-cache.1/ui-backhandler-uikitx64-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-uikitx64",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "wasmJsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-wasm-js/1.10.3-picture-cache.1/ui-backhandler-wasm-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-wasm-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "wasmJsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-wasm-js/1.10.3-picture-cache.1/ui-backhandler-wasm-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-wasm-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    },
+    {
+      "name": "wasmJsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "js"
+      },
+      "available-at": {
+        "url": "../../ui-backhandler-wasm-js/1.10.3-picture-cache.1/ui-backhandler-wasm-js-1.10.3-picture-cache.1.module",
+        "group": "org.jetbrains.compose.ui",
+        "module": "ui-backhandler-wasm-js",
+        "version": "1.10.3-picture-cache.1"
+      }
+    }
+  ]
+}
