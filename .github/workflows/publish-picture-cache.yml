@@ -1,0 +1,207 @@
+name: Publish picture-cache fork
+
+# Builds the picture-cache patches as a flat Maven repo and commits the
+# artifacts to the gh-pages branch so consumers can resolve them via
+# https://ezoushen.github.io/compose-multiplatform-core/ without auth.
+#
+# Trigger: push a tag matching `picture-cache-v*` (e.g. picture-cache-v1.10.3.1).
+# The portion after `picture-cache-v` becomes the version extra suffix the
+# Gradle build will append to the base version from libraryversions.toml.
+
+on:
+  push:
+    tags:
+      - 'picture-cache-v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Full published version (e.g. 1.10.3-picture-cache.1)'
+        required: true
+        default: '1.10.3-picture-cache.1'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Publish to gh-pages flat Maven repo
+    runs-on: macos-latest
+    env:
+      INPUT_VERSION_EXTRA: ${{ github.event.inputs.version }}
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v5
+        with:
+          # Need full history + tags so the GH Release step can compute
+          # the commit range since the previous picture-cache-v* tag.
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Resolve version
+        id: version
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          # Tag form: picture-cache-v1.10.3.1 -> 1.10.3-picture-cache.1
+          # workflow_dispatch: input is the full version string (e.g. 1.10.3-picture-cache.1)
+          if [ "$EVENT_NAME" = "push" ]; then
+            TAG="${REF_NAME#picture-cache-v}"
+            BASE="${TAG%.*}"        # 1.10.3
+            REV="${TAG##*.}"        # 1
+            VERSION="${BASE}-picture-cache.${REV}"
+          else
+            VERSION="$INPUT_VERSION_EXTRA"
+          fi
+          case "$VERSION" in
+            [0-9]*.[0-9]*.[0-9]*-picture-cache.[A-Za-z0-9._-]*) : ;;
+            *) echo "invalid version: $VERSION"; exit 1 ;;
+          esac
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Prerequisites
+        uses: ./.github/actions/setup-prerequisites
+
+      - name: Setup Xcode
+        uses: ./.github/actions/setup-xcode
+
+      - name: Publish artifacts to staging dir
+        env:
+          PUBLISH_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$GITHUB_WORKSPACE/m2-staging"
+          ./gradlew publishComposeJbToMavenLocal \
+            -Pcompose.platforms=macos,uikit,jvm,android \
+            -Pjetbrains.publication.libraries=COMPOSE \
+            "-Pjetbrains.publication.version.COMPOSE=$PUBLISH_VERSION" \
+            -Pandroidx.versionExtraCheckEnabled=false \
+            -x jbVerifyDependencyVersions \
+            -Dmaven.repo.local="$GITHUB_WORKSPACE/m2-staging" \
+            --no-daemon --stacktrace
+
+      - name: Filter to org.jetbrains.compose only
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/org/jetbrains
+          cp -R m2-staging/org/jetbrains/compose artifacts/org/jetbrains/
+          du -sh artifacts/
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: gh-pages-checkout
+          fetch-depth: 1
+
+      - name: Sync artifacts and refresh version index
+        env:
+          PUBLISH_VERSION: ${{ steps.version.outputs.version }}
+          SHORT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          rsync -a artifacts/ gh-pages-checkout/
+          cd gh-pages-checkout
+
+          # Rebuild versions.json from the runtime artifact dir (authoritative
+          # list of published versions). Format: array of version strings,
+          # newest first.
+          python3 - <<'PY'
+          import json, os, re
+          base = "org/jetbrains/compose/runtime/runtime"
+          versions = []
+          if os.path.isdir(base):
+              for name in os.listdir(base):
+                  if os.path.isdir(os.path.join(base, name)) and re.match(r"\d", name):
+                      versions.append(name)
+          # Sort newest-first using simple version key (split on . and -)
+          def key(v):
+              parts = re.split(r"[.\-]", v)
+              return [int(p) if p.isdigit() else p for p in parts]
+          versions.sort(key=key, reverse=True)
+          with open("versions.json", "w") as f:
+              json.dump(versions, f, indent=2)
+          PY
+
+          # Regenerate index.html with version list rendered server-side so
+          # the page works with JS disabled.
+          python3 - <<'PY'
+          import json
+          versions = json.load(open("versions.json"))
+          rows = "\n".join(
+              f'      <li><a href="org/jetbrains/compose/runtime/runtime/{v}/">{v}</a></li>'
+              for v in versions
+          ) or "      <li><em>no versions published yet</em></li>"
+          html = f"""<!DOCTYPE html>
+          <html><head><meta charset="utf-8"><title>compose-multiplatform-core picture-cache fork</title>
+          <style>body{{font-family:system-ui,sans-serif;max-width:760px;margin:2em auto;padding:0 1em;line-height:1.5}}code,pre{{background:#f4f4f4;padding:2px 4px;border-radius:3px}}pre{{padding:1em;overflow-x:auto}}</style>
+          </head><body>
+          <h1>compose-multiplatform-core — picture-cache fork</h1>
+          <p>Flat Maven repository hosting fork artifacts. Add to Gradle as:</p>
+          <pre>maven {{ url = uri("https://ezoushen.github.io/compose-multiplatform-core/") }}</pre>
+          <p>See <a href="https://github.com/ezoushen/compose-multiplatform-core/blob/feat/picture-cache-1.10.3/PATCHES.md">PATCHES.md</a> for what this fork changes and the rebase recipe for newer JetBrains releases.</p>
+          <h2>Published versions</h2>
+          <p>Machine-readable: <a href="versions.json">versions.json</a></p>
+          <ul>
+          {rows}
+          </ul>
+          </body></html>
+          """
+          # Strip leading 10-space block indent (heredoc adds it).
+          import textwrap
+          open("index.html", "w").write(textwrap.dedent(html))
+          PY
+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No artifact changes to commit"
+            exit 0
+          fi
+          git commit -m "Publish $PUBLISH_VERSION (${SHORT_SHA:0:7})"
+          git push origin gh-pages
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLISH_VERSION: ${{ steps.version.outputs.version }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          # Find previous picture-cache tag (if any) to scope the release notes.
+          PREV_TAG=$(git tag --list 'picture-cache-v*' --sort=-v:refname \
+            | grep -v "^${REF_NAME}$" | head -n1 || true)
+          if [ -n "$PREV_TAG" ]; then
+            RANGE="${PREV_TAG}..${REF_NAME}"
+            HEADER="Changes since \`$PREV_TAG\`"
+          else
+            # First release — list our patch chain only (commits since fork point)
+            BASE_COMMIT=$(git log --grep='^Copy Jetpack Compose ' -n 1 --pretty=%H)
+            RANGE="${BASE_COMMIT}..${REF_NAME}"
+            HEADER="Patches in this release (rebased on \`$(git log -1 --pretty=%h "$BASE_COMMIT")\`)"
+          fi
+          COMMITS=$(git log "$RANGE" --pretty='- %s (%h)' --no-merges)
+
+          NOTES_FILE=$(mktemp)
+          {
+            echo "Maven coords: \`org.jetbrains.compose.<group>:*:${PUBLISH_VERSION}\`"
+            echo
+            echo "Repository:"
+            echo '```kotlin'
+            echo 'maven { url = uri("https://ezoushen.github.io/compose-multiplatform-core/") }'
+            echo '```'
+            echo
+            echo "## $HEADER"
+            echo
+            echo "$COMMITS"
+            echo
+            echo "See [PATCHES.md](https://github.com/ezoushen/compose-multiplatform-core/blob/${REF_NAME}/PATCHES.md) for the full patch index."
+          } > "$NOTES_FILE"
+
+          gh release create "$REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$PUBLISH_VERSION" \
+            --notes-file "$NOTES_FILE"
