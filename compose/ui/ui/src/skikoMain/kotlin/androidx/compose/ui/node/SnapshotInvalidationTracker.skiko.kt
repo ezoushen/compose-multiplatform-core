@@ -34,6 +34,7 @@ internal class SnapshotInvalidationTracker(
 ) {
     private val snapshotChanges = CommandList(invalidate)
     private var needMeasureAndLayout = true
+    private var needRecord = true
     private var needDraw = true
 
     /**
@@ -46,6 +47,15 @@ internal class SnapshotInvalidationTracker(
     val hasInvalidations: Boolean
         get() = needMeasureAndLayout || needDraw || snapshotChanges.hasCommands
 
+    /**
+     * Structural-only invalidations that require the platform redrawer to re-record its
+     * cached SkPicture. Content-only invalidations (per-layer drawBlock dirty from a
+     * snapshot state read) do not appear here — the cached Picture's drawRenderNode
+     * commands replay at draw time and pick up freshly-updated RenderNodes automatically.
+     */
+    val hasRecordInvalidations: Boolean
+        get() = needMeasureAndLayout || needRecord
+
     fun requestMeasureAndLayout() {
         needMeasureAndLayout = true
         invalidate()
@@ -55,6 +65,22 @@ internal class SnapshotInvalidationTracker(
         needMeasureAndLayout = false
     }
 
+    /**
+     * Request a structural re-record of the cached SkPicture. Use for layout changes,
+     * layer tree topology changes (attach/detach), and transform/bounds changes that
+     * are baked into the Picture's drawRenderNode commands.
+     */
+    fun requestRecord() {
+        needRecord = true
+        needDraw = true
+        invalidate()
+    }
+
+    /**
+     * Request a draw pass without busting the cached SkPicture. Use for content-only
+     * invalidations (per-layer RenderNode dirty) — Picture replay re-reads the dirty
+     * RenderNode at replay time so the new content shows without re-recording.
+     */
     fun requestDraw() {
         needDraw = true
         invalidate()
@@ -62,6 +88,7 @@ internal class SnapshotInvalidationTracker(
 
     fun onDraw() {
         needDraw = false
+        needRecord = false
     }
 
     /**

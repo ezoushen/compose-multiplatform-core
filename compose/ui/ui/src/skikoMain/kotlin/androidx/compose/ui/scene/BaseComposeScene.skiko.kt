@@ -126,8 +126,13 @@ internal abstract class BaseComposeScene(
     protected fun updateInvalidations() {
         hasPendingDraws = frameClock.hasAwaiters ||
             snapshotInvalidationTracker.hasInvalidations
-        if (hasPendingDraws) {
-            // Any pending draw work invalidates the cached SkPicture in the platform redrawer.
+        // Only structural work (layout, layer attach/detach, transform changes, frame-clock
+        // driven recomposition) busts the cached outer SkPicture. Pure per-layer content
+        // invalidations from snapshot state writes (e.g., an external display-link animator
+        // mutating a state observed inside a single Canvas/drawBlock) leave the Picture
+        // valid — its drawRenderNode commands replay against per-layer RenderNodes which
+        // are updated in-place before draw.
+        if (frameClock.hasAwaiters || snapshotInvalidationTracker.hasRecordInvalidations) {
             _sceneDirty = true
         }
         if (hasPendingDraws && !isInvalidationDisabled && !isClosed && composition != null) {

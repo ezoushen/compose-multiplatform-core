@@ -539,7 +539,9 @@ internal class RootNodeOwner(
                     val resend = if (sendPointerUpdate) inputHandler::onPointerUpdate else null
                     val rootNodeResized = measureAndLayoutDelegate.measureAndLayout(resend)
                     if (rootNodeResized) {
-                        snapshotInvalidationTracker.requestDraw()
+                        // Root resize is structural — bake new bounds/clips into the cached
+                        // SkPicture by requesting a re-record, not just a replay.
+                        snapshotInvalidationTracker.requestRecord()
                     }
                     measureAndLayoutDelegate.dispatchOnPositionedCallbacks()
                     rectManager.dispatchCallbacks()
@@ -831,31 +833,38 @@ internal class RootNodeOwner(
             drawBlock: (canvas: Canvas, parentLayer: GraphicsLayer?) -> Unit,
             invalidateParentLayer: () -> Unit,
             explicitLayer: GraphicsLayer?
-        ) = if (explicitLayer != null || !ComposeUiFlags.useLegacyRenderNodeLayers) {
-            GraphicsLayerOwnerLayer(
-                graphicsLayer = explicitLayer ?: graphicsContext.createGraphicsLayer(),
-                context = if (explicitLayer != null) null else graphicsContext,
-                layerManager = this,
-                drawBlock = drawBlock,
-                invalidateParentLayer = invalidateParentLayer,
-            )
-        } else {
-            LegacyRenderNodeLayer(
-                density = Snapshot.withoutReadObservation {
-                    // density is a mutable state that is observed whenever layer is created. the layer
-                    // is updated manually on draw, so not observing the density changes here helps with
-                    // performance in layout.
-                    density
-                },
-                measureDrawBounds = platformContext.measureDrawLayerBounds,
-                layerManager = this,
-                requiresStateWorkaround = { graphicsContext.activeGraphicsLayersCount > 0 },
-                invalidateParentLayer = invalidateParentLayer,
-                drawBlock = drawBlock,
-            )
+        ): OwnedLayer {
+            // Layer tree topology change — cached outer SkPicture's drawRenderNode
+            // sequence will need a new entry. Bust the record cache.
+            snapshotInvalidationTracker.requestRecord()
+            return if (explicitLayer != null || !ComposeUiFlags.useLegacyRenderNodeLayers) {
+                GraphicsLayerOwnerLayer(
+                    graphicsLayer = explicitLayer ?: graphicsContext.createGraphicsLayer(),
+                    context = if (explicitLayer != null) null else graphicsContext,
+                    layerManager = this,
+                    drawBlock = drawBlock,
+                    invalidateParentLayer = invalidateParentLayer,
+                )
+            } else {
+                LegacyRenderNodeLayer(
+                    density = Snapshot.withoutReadObservation {
+                        // density is a mutable state that is observed whenever layer is created. the layer
+                        // is updated manually on draw, so not observing the density changes here helps with
+                        // performance in layout.
+                        density
+                    },
+                    measureDrawBounds = platformContext.measureDrawLayerBounds,
+                    layerManager = this,
+                    requiresStateWorkaround = { graphicsContext.activeGraphicsLayersCount > 0 },
+                    invalidateParentLayer = invalidateParentLayer,
+                    drawBlock = drawBlock,
+                )
+            }
         }
 
         override fun recycle(layer: OwnedLayer): Boolean {
+            // Layer detach — same reason as createLayer. Bust the record cache.
+            snapshotInvalidationTracker.requestRecord()
             needClearObservations = true
             dirtyLayers -= layer
             return false
