@@ -27,10 +27,18 @@ release, rebase this branch on top of the new upstream tag.
 | 6 | feat(ios): expose DirectContext via ComposeMetalContext for external Skia integrations | `compose:ui` iOS public surface |
 | 7 | feat(ios): remove Phase E external-compositor hooks | `compose:ui` iOS — cleanup of unused exports |
 | 8 | perf(ui): split structural vs content invalidations in BaseComposeScene | `compose:ui` — SnapshotInvalidationTracker, RootNodeOwner, BaseComposeScene |
-Patches 1, 2, 8 touch shared `compose:ui` / `compose:runtime` files;
-those are the most likely to conflict on rebase. Patches 3–7 live in
-iOS-specific files (MetalRedrawer, ComposeMetalContext) that change
-much more rarely upstream.
+| 9 | test(ui): cover SnapshotInvalidationTracker structural-vs-content split | `compose:ui` skikoTest only |
+| 10 | test(ui): cover BaseComposeScene sceneDirty / markSceneClean contract | `compose:ui` skikoTest only |
+| 11 | fix(ios): drop drawableVersions entry when rtSurfaceCache evicts | `compose:ui` iOS — MetalRedrawer eviction branch |
+| 12 | fix(ios): mark ComposeMetalContext.directContext @Volatile | `compose:ui` iOS public surface |
+| 13 | fix(ios): clear sceneDirty before pictureRecording, not after | `compose:ui` iOS — MetalRedrawer draw flow |
+| 14 | fix(ios): close evicted RT/Surface pairs on rendering queue | `compose:ui` iOS — MetalRedrawer resize cleanup |
+| 15 | docs: capture transform-bypass-layout limitation, add lock-in test | docs + `compose:ui` skikoTest only |
+
+Patches 1, 2, 8 touch shared `compose:ui` / `compose:runtime` files
+and are the most likely to conflict on rebase. Patches 3–7, 11–14 live
+in iOS-specific files (MetalRedrawer, ComposeMetalContext) that change
+much more rarely upstream. Patches 9, 10, 15 are tests/docs only.
 
 The version of the published COMPOSE artifacts is controlled at CI
 time via the existing `-Pjetbrains.publication.version.COMPOSE=...`
@@ -121,3 +129,17 @@ Estimated effort: ~half day for the publication patch (touches
 non-trivial buildSrc internals) + ~30min for CI/wiring + 1hr CI bake
 per release. Reward small (stforestkit cleanup ~30 lines) — defer
 unless upstream regresses or stub workaround breaks.
+
+## Resolved — correctness fixes landed in 1.10.3-picture-cache.2
+
+Patches 11–14 close four bugs surfaced in the multi-agent code review on
+2026-05-04 (drawable cache eviction stale-key, post-render dirty-flag race,
+multi-thread resize race, public-API thread visibility). The structural-vs-
+content split now has unit-test coverage (patches 9, 10, 15). Two minor
+limitations remain documented in `KNOWN_LIMITATIONS.md`: transform/clip/alpha
+mutations bypassing layout, and a narrow `_sceneDirty` volatile-only race —
+neither blocks our workload.
+
+Issue 1 from the review (`hasInvalidations` vs `hasRecordInvalidations`
+asymmetry) was confirmed false-positive; the asymmetry is the intended
+fast path for content-only updates from external animators.
