@@ -210,10 +210,17 @@ internal class MetalRedrawer(
         ) ?: run { rt.close(); return null }
         val pair = kotlin.Pair(rt, s)
         rtSurfaceCache[key] = pair
-        // Cap to typical CAMetalLayer pool size (2-3); evict LRU-ish if it grows past 4.
+        // Cap to typical CAMetalLayer pool size (2-3); evict if it grows past 4.
+        // Note: HashMap iteration order is unspecified, so this is "arbitrary
+        // eviction" rather than LRU — acceptable since pool size is small.
         if (rtSurfaceCache.size > 4) {
             val victimKey: Long = rtSurfaceCache.keys.first { it != key }
             rtSurfaceCache.remove(victimKey)?.let { (rt2, s2) -> s2.close(); rt2.close() }
+            // Drop the per-drawable picture-version slot too. CAMetalLayer
+            // recycles texture pointers; without this remove, a re-acquired
+            // victim would see a stale version match and skip replay,
+            // presenting an empty Surface for one frame.
+            drawableVersions.remove(victimKey)
         }
         return pair
     }
