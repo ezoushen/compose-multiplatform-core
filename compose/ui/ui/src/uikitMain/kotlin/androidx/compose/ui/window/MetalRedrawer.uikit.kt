@@ -192,12 +192,24 @@ internal class MetalRedrawer(
         height: Int
     ): kotlin.Pair<BackendRenderTarget, org.jetbrains.skia.Surface>? {
         if (cachedRtSurfaceWidth != width || cachedRtSurfaceHeight != height) {
-            // Size changed; close all cached entries and invalidate per-drawable picture-version map.
-            rtSurfaceCache.values.forEach { (rt, s) -> s.close(); rt.close() }
+            // Size changed. Surfaces handed off to the rendering dispatch queue
+            // for parallel encode may still be in flight; closing them on the
+            // main thread now would race that encode. Snapshot the entries,
+            // detach them from the cache, then schedule the close onto the same
+            // FIFO rendering queue so any prior encode finishes first. Mirrors
+            // retireCachedPicture's pattern.
+            val retired = rtSurfaceCache.values.toList()
             rtSurfaceCache.clear()
             drawableVersions.clear()
             cachedRtSurfaceWidth = width
             cachedRtSurfaceHeight = height
+            if (useSeparateRenderThreadWhenPossible) {
+                dispatch_async(renderingDispatchQueue) {
+                    retired.forEach { (rt, s) -> s.close(); rt.close() }
+                }
+            } else {
+                retired.forEach { (rt, s) -> s.close(); rt.close() }
+            }
         }
         val drawableTex = metalDrawablesHandler.drawableTexture(metalDrawable)
         val key: Long = drawableTex.rawValue.toLong()
