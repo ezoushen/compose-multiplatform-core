@@ -1,5 +1,6 @@
 package androidx.compose.ui.window
 
+import kotlin.concurrent.Volatile
 import org.jetbrains.skia.DirectContext
 
 /**
@@ -18,6 +19,7 @@ import org.jetbrains.skia.DirectContext
  * outside that window returns null.
  */
 public object ComposeMetalContext {
+    @Volatile
     public var directContext: DirectContext? = null
         internal set
 }
