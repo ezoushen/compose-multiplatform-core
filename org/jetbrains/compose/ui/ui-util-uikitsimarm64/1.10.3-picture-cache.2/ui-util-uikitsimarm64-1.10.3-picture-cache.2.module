@@ -1,0 +1,144 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../ui-util/1.10.3-picture-cache.2/ui-util-1.10.3-picture-cache.2.module",
+    "group": "org.jetbrains.compose.ui",
+    "module": "ui-util",
+    "version": "1.10.3-picture-cache.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "uikitSimArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-uikit",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-util-uikitSimArm64Main-1.10.3-picture-cache.2.klib",
+          "url": "ui-util-uikitsimarm64-1.10.3-picture-cache.2.klib",
+          "size": 41464,
+          "sha512": "5fd76c18d84bc8f990373e90776b0f5f4b6aad6862cd9ba776fa277173b0e53d8456eb3836f19f4ecca6ed51fa55375c0e6aeaf14f380e934161d76e2b1d83b5",
+          "sha256": "a44f1f2ad18f506b8117f14c1ef6ca96ee3b779934da84726a108a14162722bf",
+          "sha1": "8d63224bfa96f87c94d5bce951ae45887d294e7d",
+          "md5": "dea2b8aa2006bd15edf783d771201139"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "ui-util-uikitsimarm64-1.10.3-picture-cache.2-sources.jar",
+          "url": "ui-util-uikitsimarm64-1.10.3-picture-cache.2-sources.jar",
+          "size": 15502,
+          "sha512": "0a8c627af13f302388de1d1a70b0b9ddf76b5806cc33cfb43467b550c09cc7862f24acedb761aae23f9908dec3a0308e0fd8d2c64024af2a2b93ba29f659cc99",
+          "sha256": "99ad1485ebf714ec9a0434a843a5f8650d50ad66763299e14d8d69b598e1b4f5",
+          "sha1": "dc0e2b16d871936a67fc61a510f422ba473c81c1",
+          "md5": "a51e1388ae2f586c4a9598d5c5ec3989"
+        }
+      ]
+    },
+    {
+      "name": "uikitSimArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-uikit",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-util-uikitsimarm64-1.10.3-picture-cache.2-metadata.jar",
+          "url": "ui-util-uikitsimarm64-1.10.3-picture-cache.2-metadata.jar",
+          "size": 4927,
+          "sha512": "f00518fcc49350b8f32ea19ba8bbaf0eac558d0b8735afee7e76a088a8feb59d944da826302cabd0820731f52b62c832830a274d316b46429b98d34afdd82b27",
+          "sha256": "e857fdfacfcaf914f0455d08dbd77d27bdf27552b1bbebfc875d8ea29e66f505",
+          "sha1": "b568e21b3055f020451d334afaba56d4a68ec154",
+          "md5": "29fe20186f0ec3dd1a2029d5856318c6"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../desktop/1.10.3-picture-cache.2/desktop-1.10.3-picture-cache.2.module",
+    "group": "org.jetbrains.compose.desktop",
+    "module": "desktop",
+    "version": "1.10.3-picture-cache.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-tooling-preview",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "desktop-jvm-1.10.3-picture-cache.2.jar",
+          "url": "desktop-jvm-1.10.3-picture-cache.2.jar",
+          "size": 4856,
+          "sha512": "53e62f4406c9cca47a53e01d3be4fa87c82746bdb514fadf3e1baa114340ae9d059257afd762d16fc6dcda331d7386b0ea6a6c4d2f300175f60d631178460a0a",
+          "sha256": "fdb63de4c9bdc6570c5355eeb0f013d4635effda42907c2d084acc77e08d4f8a",
+          "sha1": "42facd9840309ac4eb841a986c5d1b97d2780471",
+          "md5": "980023295d6f480188e5b98b192b9a30"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.foundation",
+          "module": "foundation",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-tooling-preview",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8"
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "desktop-jvm-1.10.3-picture-cache.2.jar",
+          "url": "desktop-jvm-1.10.3-picture-cache.2.jar",
+          "size": 4856,
+          "sha512": "53e62f4406c9cca47a53e01d3be4fa87c82746bdb514fadf3e1baa114340ae9d059257afd762d16fc6dcda331d7386b0ea6a6c4d2f300175f60d631178460a0a",
+          "sha256": "fdb63de4c9bdc6570c5355eeb0f013d4635effda42907c2d084acc77e08d4f8a",
+          "sha1": "42facd9840309ac4eb841a986c5d1b97d2780471",
+          "md5": "980023295d6f480188e5b98b192b9a30"
+        }
+      ]
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "desktop-jvm-1.10.3-picture-cache.2-sources.jar",
+          "url": "desktop-jvm-1.10.3-picture-cache.2-sources.jar",
+          "size": 1795,
+          "sha512": "e47bbdce664dd870a13362ab292b40dd56517180e32142845395c6273e0b556e6bfaf26e12fad0138df7c9af04315ffa16607af5a22b17c4e6bc0d42afcf6e2c",
+          "sha256": "a7987977f5832ca3a0611e62caecdc662c6f46362af3597e3e85c08f50c52253",
+          "sha1": "39ab3c7bb0c8fde58f50208a7bae8da4a81f2517",
+          "md5": "0bd0e6d6aa300f8008ac123b93b8db8b"
+        }
+      ]
+    }
+  ]
+}

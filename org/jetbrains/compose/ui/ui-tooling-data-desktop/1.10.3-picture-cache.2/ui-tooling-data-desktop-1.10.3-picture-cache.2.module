@@ -1,0 +1,129 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../ui-tooling-data/1.10.3-picture-cache.2/ui-tooling-data-1.10.3-picture-cache.2.module",
+    "group": "org.jetbrains.compose.ui",
+    "module": "ui-tooling-data",
+    "version": "1.10.3-picture-cache.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-tooling-data-desktop-1.10.3-picture-cache.2.jar",
+          "url": "ui-tooling-data-desktop-1.10.3-picture-cache.2.jar",
+          "size": 45444,
+          "sha512": "d602a09af45b1fdea3e03111f0f0bdff58a1ff8401ab1b3bae109a6c4e3c37c3b73e31b32a3b3ab59cbde12a7a85debc929254b7b23aa6d50796d532421b4afb",
+          "sha256": "ac91ccf5b548b9fc25b18343570caea663bd94ab0e3ab22b928ef6c86105f72f",
+          "sha1": "bfcc4ada6357e9b69563a3d71b08131201bf831e",
+          "md5": "7f428eb38e6ffd19b256f98a454dbdd7"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ui-tooling-data-desktop-1.10.3-picture-cache.2.jar",
+          "url": "ui-tooling-data-desktop-1.10.3-picture-cache.2.jar",
+          "size": 45444,
+          "sha512": "d602a09af45b1fdea3e03111f0f0bdff58a1ff8401ab1b3bae109a6c4e3c37c3b73e31b32a3b3ab59cbde12a7a85debc929254b7b23aa6d50796d532421b4afb",
+          "sha256": "ac91ccf5b548b9fc25b18343570caea663bd94ab0e3ab22b928ef6c86105f72f",
+          "sha1": "bfcc4ada6357e9b69563a3d71b08131201bf831e",
+          "md5": "7f428eb38e6ffd19b256f98a454dbdd7"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "ui-tooling-data-desktop-1.10.3-picture-cache.2-sources.jar",
+          "url": "ui-tooling-data-desktop-1.10.3-picture-cache.2-sources.jar",
+          "size": 11205,
+          "sha512": "f08655ae4732059518d783b90746477fc849e1b2ade9e18cafeee3ed0a63682a1fc08fd97e1a91574738e62b22b14fad7a0f6bcb37ed5a8c6ddaffd80c76b10a",
+          "sha256": "16bda7f5dad3ed792f6f9c6ac8b2c236c7f6ca0376b3ea672b77c54e92ba41c3",
+          "sha1": "4ef8fbfb457b4dcd71a3ce97513924fb46b42ce3",
+          "md5": "c8eaf17e2f42dc02c912c5fea4edc500"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../animation-core/1.10.3-picture-cache.2/animation-core-1.10.3-picture-cache.2.module",
+    "group": "org.jetbrains.compose.animation",
+    "module": "animation-core",
+    "version": "1.10.3-picture-cache.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "animation-core-desktop-1.10.3-picture-cache.2.jar",
+          "url": "animation-core-desktop-1.10.3-picture-cache.2.jar",
+          "size": 383171,
+          "sha512": "da7b26c9f354c46c8f352c49cf4bdab0248baa2378372460aaf19e235b223a724e402e886aced6ae9a4f4a1390654850d6a05f2e4a94afee9018fccd7f10e848",
+          "sha256": "41c0220ddbc55cb897feb0d5816b748f9c11162171f12743c04b50d0d84db628",
+          "sha1": "5dd98c5745e548644b7657901bbcc4c2c8f9ec59",
+          "md5": "a94bab3d67a320ccdc2cc2c2c973bc04"
+        }
+      ]
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.annotation-internal",
+          "module": "annotation",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.collection-internal",
+          "module": "collection",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-unit",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-util",
+          "version": {
+            "requires": "1.10.3-picture-cache.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib"
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "atomicfu",
+          "version": {
+            "requires": "0.23.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "animation-core-desktop-1.10.3-picture-cache.2.jar",
+          "url": "animation-core-desktop-1.10.3-picture-cache.2.jar",
+          "size": 383171,
+          "sha512": "da7b26c9f354c46c8f352c49cf4bdab0248baa2378372460aaf19e235b223a724e402e886aced6ae9a4f4a1390654850d6a05f2e4a94afee9018fccd7f10e848",
+          "sha256": "41c0220ddbc55cb897feb0d5816b748f9c11162171f12743c04b50d0d84db628",
+          "sha1": "5dd98c5745e548644b7657901bbcc4c2c8f9ec59",
+          "md5": "a94bab3d67a320ccdc2cc2c2c973bc04"
+        }
+      ]
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "animation-core-desktop-1.10.3-picture-cache.2-sources.jar",
+          "url": "animation-core-desktop-1.10.3-picture-cache.2-sources.jar",
+          "size": 111116,
+          "sha512": "ec8f3940c5d8ec478f6b028215545be72829ee56c53e0a00938793df865ca100ea9b36a127c935fafd4ddd907f86bfb83b3cb16dae78f6ff704a8ab71948c0e2",
+          "sha256": "204ebac31edbf5877f5e6c5c63e366adf003a195f96cde8bd5ae41887bdf2fd1",
+          "sha1": "6672b0d56b5090795dd2a9474609c477e2c4c65c",
+          "md5": "7d13325692173afbcb26d7d3549cdc7c"
+        }
+      ]
+    }
+  ]
+}
