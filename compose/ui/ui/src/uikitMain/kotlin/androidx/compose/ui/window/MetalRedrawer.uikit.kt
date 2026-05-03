@@ -486,6 +486,14 @@ internal class MetalRedrawer(
                 cached!!
             } else {
                 trace("MetalRedrawer:draw:pictureRecording") {
+                    // Clear sceneDirty BEFORE rendering so any requestRecord/requestDraw
+                    // produced during the post-render snapshot drain (BaseComposeScene's
+                    // postponeInvalidation finally block) survives into the next frame.
+                    // A pre-existing narrow race remains: between the isSceneDirty() read
+                    // above and this clear, a frame-clock-thread updateInvalidations could
+                    // lose its dirty signal. Closing that requires upgrading _sceneDirty
+                    // to AtomicBoolean.compareAndSet(false→isCurrentlyClean) — out of scope.
+                    markSceneClean()
                     pictureRecorder.beginRecording(
                         Rect(
                             left = 0f,
@@ -503,7 +511,6 @@ internal class MetalRedrawer(
                     if (cached != null) retireCachedPicture(cached)
                     // Bump picture version so all drawable caches re-flush on next encode.
                     pictureVersion++
-                    markSceneClean()
                     newPicture
                 }
             }
